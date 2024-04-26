@@ -31,7 +31,7 @@ export const config = {
 };
 
 export const theme = {
-  colorMode: "dark",
+  colorMode: "light",
 };
 
 export const eas = {
