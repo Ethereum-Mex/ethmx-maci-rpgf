@@ -60,14 +60,14 @@ async function encodeData(
         value = values[name] as SchemaValue;
       } else {
         
-        value = "Voter"; // Cambia "Valor Manual" por el valor que desees
+        value = "Voter2"; // Cambia "Valor Manual" por el valor que desees
       }
       console.log(value);
       
       /*
       if (name && type && values) {
         const value = values[name] as SchemaValue;
-      */  
+        */  
       return { name, type, value };
     } else {
       throw new Error(
