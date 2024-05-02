@@ -54,9 +54,20 @@ async function encodeData(
 
   console.log("Creating data to encode from schema record...");
   const dataToEncode = schemaRecord?.schema.split(",").map((param) => {
-    const [type, name] = param.trim().split(" ");
-    if (name && type && values) {
-      const value = values[name] as SchemaValue;
+    let value;
+    if (name && type) {
+      if (values && values[name]) {
+        value = values[name] as SchemaValue;
+      } else {
+        
+        value = "Voter"; // Cambia "Valor Manual" por el valor que desees
+      }
+      console.log(value);
+      
+      /*
+      if (name && type && values) {
+        const value = values[name] as SchemaValue;
+      */  
       return { name, type, value };
     } else {
       throw new Error(
