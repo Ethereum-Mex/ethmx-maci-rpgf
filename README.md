@@ -52,7 +52,7 @@ All networks EAS is deployed to are supported. If a network is not supported, yo
 
 ## Development
 
-To run locally follow these instructions:
+To run locally make follow these instructions:
 
 ```sh
 git clone https://github.com/privacy-scaling-explorations/maci-rpgf
