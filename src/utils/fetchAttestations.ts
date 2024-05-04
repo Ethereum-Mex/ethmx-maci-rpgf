@@ -85,7 +85,7 @@ export async function fetchApprovedVoter(address: string) {
   return fetchAttestations([eas.schemas.approval], {
     where: {
       recipient: { equals: address },
-      ...createDataFilter("type", "bytes32", "voter"),
+      ...createDataFilter("type1", "bytes32", "voter"),
     },
   }).then((attestations) => attestations.length);
 }
@@ -96,7 +96,7 @@ export async function fetchApprovedVoterAttestations(address: string) {
   return fetchAttestations([eas.schemas.approval], {
     where: {
       recipient: { equals: address },
-      ...createDataFilter("type", "bytes32", "voter"),
+      ...createDataFilter("type1", "bytes32", "voter"),
     },
   }).then((attestations) => attestations);
 }
