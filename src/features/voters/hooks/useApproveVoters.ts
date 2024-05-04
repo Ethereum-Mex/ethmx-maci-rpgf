@@ -22,7 +22,7 @@ export function useApproveVoters(options: {
         voters.map((recipient) =>
           createAttestation(
             {
-              values: { type: "voter", round: config.roundId },
+              values: { type1: "voter", round1: config.roundId },
               schemaUID: eas.schemas.approval,
               recipient,
             },
