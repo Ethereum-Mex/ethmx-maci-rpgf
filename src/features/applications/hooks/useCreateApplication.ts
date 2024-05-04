@@ -20,29 +20,29 @@ export function useCreateApplication(options: {
     }) => {
       console.log("Uploading profile and application metadata");
       return Promise.all([
-        upload.mutateAsync(values.application).then(({ url: metadataPtr }) => {
+        upload.mutateAsync(values.application).then(({ url: metadataPtr1 }) => {
           console.log("Creating application attestation data");
           return attestation.mutateAsync({
             schemaUID: eas.schemas.metadata,
             values: {
-              name: values.application.name,
-              metadataType: 0, // "http"
-              metadataPtr,
-              type: "application",
-              round: config.roundId,
+              name1: values.application.name,
+              metadataType1: 0, // "http"
+              metadataPtr1,
+              type1: "application",
+              round1: config.roundId,
             },
           });
         }),
-        upload.mutateAsync(values.profile).then(({ url: metadataPtr }) => {
+        upload.mutateAsync(values.profile).then(({ url: metadataPtr1 }) => {
           console.log("Creating profile attestation data");
           return attestation.mutateAsync({
             schemaUID: eas.schemas.metadata,
             values: {
-              name: values.profile.name,
-              metadataType: 0, // "http"
-              metadataPtr,
-              type: "profile",
-              round: config.roundId,
+              name1: values.profile.name,
+              metadataType1: 0, // "http"
+              metadataPtr1,
+              type1: "profile",
+              round1: config.roundId,
             },
           });
         }),
