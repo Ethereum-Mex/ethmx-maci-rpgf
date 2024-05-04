@@ -18,7 +18,7 @@ export function useApproveApplication(opts?: { onSuccess?: () => void }) {
         applicationIds.map((refUID) =>
           createAttestation(
             {
-              values: { type: "application", round: config.roundId },
+              values: { type1: "application", round1: config.roundId },
               schemaUID: eas.schemas.approval,
               refUID,
             },
