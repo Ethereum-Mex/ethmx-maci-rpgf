@@ -252,7 +252,7 @@ export const ProjectAvatarWithName = ({
 }) => {
   const { data: project } = useProjectById(id!);
   const Component = link ? Link : "div";
-
+  console.log(project)
   return (
     <Component
       tabIndex={-1}
@@ -263,7 +263,7 @@ export const ProjectAvatarWithName = ({
     >
       <ProjectAvatar rounded="full" size="sm" profileId={project?.recipient} />
       <div>
-        <div className="font-bold">{project?.name}</div>
+        <div className="font-bold">{project?.name1}</div>
         <div className="text-muted">{subtitle}</div>
       </div>
     </Component>

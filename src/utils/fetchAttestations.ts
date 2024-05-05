@@ -17,7 +17,7 @@ export type AttestationWithMetadata = {
 };
 
 export type Attestation = Omit<AttestationWithMetadata, "decodedDataJson"> & {
-  name: string;
+  name1: string;
   metadataPtr1: string;
 };
 
@@ -109,10 +109,10 @@ function parseAttestation({
 }
 
 type Metadata = {
-  name: string;
+  name1: string;
   metadataPtr1: string;
-  round: string;
-  type: string;
+  round1: string;
+  type1: string;
 };
 export function parseDecodedMetadata(json: string): Metadata {
   const data = JSON.parse(json) as { name: string; value: { value: string } }[];
