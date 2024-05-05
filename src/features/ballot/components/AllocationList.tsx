@@ -252,7 +252,7 @@ export const ProjectAvatarWithName = ({
 }) => {
   const { data: project } = useProjectById(id!);
   const Component = link ? Link : "div";
-  console.log(project)
+  console.log(subtitle)
   return (
     <Component
       tabIndex={-1}
