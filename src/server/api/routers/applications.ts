@@ -18,8 +18,8 @@ export const applicationsRouter = createTRPCRouter({
           attester: { in: config.admins },
           refUID: input.ids ? { in: input.ids } : undefined,
           AND: [
-            createDataFilter("type", "bytes32", "application"),
-            createDataFilter("round", "bytes32", config.roundId),
+            createDataFilter("type1", "bytes32", "application"),
+            createDataFilter("round1", "bytes32", config.roundId),
           ],
         },
       });
@@ -29,8 +29,8 @@ export const applicationsRouter = createTRPCRouter({
       orderBy: [{ time: "desc" }],
       where: {
         AND: [
-          createDataFilter("type", "bytes32", "application"),
-          createDataFilter("round", "bytes32", config.roundId),
+          createDataFilter("type1", "bytes32", "application"),
+          createDataFilter("round1", "bytes32", config.roundId),
         ],
       },
     });

@@ -29,8 +29,8 @@ export const votersRouter = createTRPCRouter({
     return fetchAttestations([eas.schemas.approval], {
       where: {
         AND: [
-          createDataFilter("type", "bytes32", "voter"),
-          createDataFilter("round", "bytes32", config.roundId),
+          createDataFilter("type1", "bytes32", "voter"),
+          createDataFilter("round1", "bytes32", config.roundId),
         ],
       },
     });

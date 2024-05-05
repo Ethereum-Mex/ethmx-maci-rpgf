@@ -18,11 +18,11 @@ const steps = [
   },
   {
     label: "Tallying",
-    date: undefined,
+    date: config.votingEndsAt,
   },
   {
     label: "Distribution",
-    date: undefined,
+    date: config.distributionAt,
   },
 ];
 

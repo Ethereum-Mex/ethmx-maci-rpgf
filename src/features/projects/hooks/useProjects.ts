@@ -51,8 +51,8 @@ export function useProjectIdMapping(ballot?: Ballot): Record<string, number> {
   return projectIndices;
 }
 
-export function useProjectMetadata(metadataPtr?: string) {
-  return useMetadata<Application>(metadataPtr);
+export function useProjectMetadata(metadataPtr1?: string) {
+  return useMetadata<Application>(metadataPtr1);
 }
 
 export function useProjectCount() {

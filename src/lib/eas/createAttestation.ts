@@ -24,7 +24,7 @@ export async function createAttestation(
 
   console.log("Encoding attestation data");
   const data = await encodeData(params, signer);
-
+  console.log(data)
   return {
     schema: params.schemaUID,
     data: {
@@ -49,22 +49,42 @@ async function encodeData(
 
   console.log("Getting schema record...");
   const schemaRecord = await schemaRegistry.getSchema({ uid: schemaUID });
+  console.log(schemaRecord)
 
   const schemaEncoder = new SchemaEncoder(schemaRecord.schema);
 
   console.log("Creating data to encode from schema record...");
-  const dataToEncode = schemaRecord?.schema.split(",").map((param) => {
+  const dataToEncode = schemaRecord?.schema.split(",").map((param, index) => {
     const [type, name] = param.trim().split(" ");
-    if (name && type && values) {
-      const value = values[name] as SchemaValue;
+    console.log(name)
+    console.log(type)
+    console.log(values)
+    /*
+    let value;
+    if (name && type) {
+      if (values && values[name]) {
+        value = values[name] as SchemaValue;
+      } else {
+        
+        value = index === 0 ? "voter" : "open-rpgf-1"; // Cambia "Valor Manual" por el valor que desees
+      }
+      console.log(value);
+    */
+    
+      if (name && type && values) {
+        const value = values[name] as SchemaValue;
+        console.log(value)
+    
       return { name, type, value };
     } else {
+      console.log(`Attestation data: ${name} not found in ${JSON.stringify(values)}`)
       throw new Error(
         `Attestation data: ${name} not found in ${JSON.stringify(values)}`,
       );
     }
   });
-
+  console.log(dataToEncode)
   console.log("Encoding data with schema...");
+  
   return schemaEncoder.encodeData(dataToEncode);
 }

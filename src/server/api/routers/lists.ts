@@ -21,8 +21,8 @@ export const listsRouter = createTRPCRouter({
     }),
   search: publicProcedure.input(FilterSchema).query(async ({ input }) => {
     const filters = [
-      createDataFilter("type", "bytes32", "list"),
-      createDataFilter("round", "bytes32", config.roundId),
+      createDataFilter("type1", "bytes32", "list"),
+      createDataFilter("round1", "bytes32", config.roundId),
     ];
     if (input.search) {
       filters.push(createDataFilter("name", "string", input.search));

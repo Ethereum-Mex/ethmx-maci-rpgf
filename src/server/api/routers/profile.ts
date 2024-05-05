@@ -12,7 +12,7 @@ export const profileRouter = createTRPCRouter({
       return fetchAttestations([eas.schemas.metadata], {
         where: {
           recipient: { in: [input.id] },
-          ...createDataFilter("type", "bytes32", "profile"),
+          ...createDataFilter("type1", "bytes32", "profile"),
         },
       }).then(([attestation]) => {
         if (!attestation) {

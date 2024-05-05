@@ -18,14 +18,14 @@ export function useCreateList(options: {
       console.log("Uploading list metadata");
       return upload
         .mutateAsync(values)
-        .then(({ url: metadataPtr }) => {
+        .then(({ url: metadataPtr1 }) => {
           console.log("Creating application attestation data");
           return attestation.mutateAsync({
             schemaUID: eas.schemas.metadata,
             values: {
               name: values.name,
-              metadataType: 0, // "http"
-              metadataPtr,
+              metadataType1: 0, // "http"
+              metadataPtr1,
               type: "list",
               round: config.roundId,
             },

@@ -15,9 +15,10 @@ export default function ProjectDetails({
 }: {
   action: ReactNode;
   attestation?: Attestation;
+  
 }) {
-  const metadata = useProjectMetadata(attestation?.metadataPtr);
-
+  const metadata = useProjectMetadata(attestation?.metadataPtr1);
+  console.log(attestation)
   const { bio, websiteUrl, payoutAddress, fundingSources } =
     metadata.data ?? {};
 
@@ -25,7 +26,8 @@ export default function ProjectDetails({
     <div className="relative">
       <div className="sticky left-0 right-0 top-0 z-10 bg-white p-4 dark:bg-gray-900">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">{attestation?.name}</h1>
+          <h1 className="text-2xl font-bold">{attestation?.name1}</h1>
+          
           {action}
         </div>
       </div>

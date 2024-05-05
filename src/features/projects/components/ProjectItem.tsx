@@ -15,7 +15,7 @@ export function ProjectItem({
   attestation: Attestation;
   isLoading: boolean;
 }) {
-  const metadata = useProjectMetadata(attestation?.metadataPtr);
+  const metadata = useProjectMetadata(attestation?.metadataPtr1);
 
   return (
     <article
@@ -31,7 +31,7 @@ export function ProjectItem({
         />
       </div>
       <Heading className="truncate" size="lg" as="h3">
-        <Skeleton isLoading={isLoading}>{attestation?.name}</Skeleton>
+        <Skeleton isLoading={isLoading}>{attestation?.name1}</Skeleton>
       </Heading>
       <div className="mb-2">
         <p className="line-clamp-2 h-10 text-sm dark:text-gray-300">

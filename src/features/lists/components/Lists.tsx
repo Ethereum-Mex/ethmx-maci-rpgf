@@ -30,7 +30,7 @@ function ListItem({
   attestation: Attestation;
   isLoading: boolean;
 }) {
-  const metadata = useListMetadata(attestation.metadataPtr);
+  const metadata = useListMetadata(attestation.metadataPtr1);
 
   const { projects = [], impactCategory = [], impact } = metadata.data ?? {};
 

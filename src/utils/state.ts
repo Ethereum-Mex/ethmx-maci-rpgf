@@ -20,7 +20,7 @@ export const getAppState = (): AppState => {
 
   if (isAfter(config.registrationEndsAt, now)) return "APPLICATION";
   if (isAfter(config.reviewEndsAt, now)) return "REVIEWING";
-  if (isAfter(votingEndsAt, now)) return "VOTING";
+  if (isAfter(config.votingEndsAt, now)) return "VOTING";
   if (!pollData?.isStateAqMerged || !tallyData) return "TALLYING";
 
   return "RESULTS";

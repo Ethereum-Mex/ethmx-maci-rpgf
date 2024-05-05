@@ -26,18 +26,18 @@ import { Alert } from "~/components/ui/Alert";
 export function ApplicationItem({
   id,
   recipient,
-  name,
-  metadataPtr,
+  name1,
+  metadataPtr1,
   time,
   isApproved,
   isLoading,
 }: Attestation & { isApproved?: boolean; isLoading?: boolean }) {
-  const metadata = useMetadata<Application>(metadataPtr);
+  const metadata = useMetadata<Application>(metadataPtr1);
 
   const form = useFormContext();
 
   const { bio, fundingSources = [], impactMetrics = [] } = metadata.data ?? {};
-
+  console.log(name1)
   return (
     <div className="flex items-center gap-2 rounded border-b dark:border-gray-800 hover:dark:bg-gray-800">
       <label className="flex flex-1 cursor-pointer items-center gap-4 p-2">
@@ -52,7 +52,7 @@ export function ApplicationItem({
         <div className=" flex-1">
           <div className="flex items-center justify-between">
             <Skeleton isLoading={isLoading} className="mb-1 min-h-5 min-w-24">
-              {name}
+              {name1}
             </Skeleton>
           </div>
           <div>

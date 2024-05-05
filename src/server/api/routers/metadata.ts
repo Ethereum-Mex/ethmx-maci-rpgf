@@ -4,6 +4,6 @@ import { fetchMetadata } from "~/utils/fetchMetadata";
 
 export const metadataRouter = createTRPCRouter({
   get: publicProcedure
-    .input(z.object({ metadataPtr: z.string() }))
-    .query(async ({ input: { metadataPtr } }) => fetchMetadata(metadataPtr)),
+    .input(z.object({ metadataPtr1: z.string() }))
+    .query(async ({ input: { metadataPtr1 } }) => fetchMetadata(metadataPtr1)),
 });

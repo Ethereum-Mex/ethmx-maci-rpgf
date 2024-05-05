@@ -15,8 +15,8 @@ const signer = ethers.Wallet.createRandom().connect(
 test("createAttestation", async () => {
   const application = {
     name: "foo",
-    metadataType: 1,
-    metadataPtr: "metadata",
+    metadataType1: 1,
+    metadataPtr1: "metadata",
     type: "application",
     round: "0x0",
   };
@@ -51,7 +51,7 @@ vi.mock("@ethereum-attestation-service/eas-sdk", async () => {
     resolver: "0x0000000000000000000000000000000000000000",
     revocable: true,
     schema:
-      "string name,uint256 metadataType,string metadataPtr,bytes32 type,bytes32 round",
+      "string name,uint256 metadataType1,string metadataPtr1,bytes32 type,bytes32 round",
     uid: "0x58e80750f091c47b3e55ac89942b30df23de405399edad95920fe15bd22309b7",
   };
   return {

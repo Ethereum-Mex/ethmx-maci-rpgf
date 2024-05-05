@@ -18,8 +18,8 @@ export const projectsRouter = createTRPCRouter({
       where: {
         attester: { in: config.admins },
         AND: [
-          createDataFilter("type", "bytes32", "application"),
-          createDataFilter("round", "bytes32", config.roundId),
+          createDataFilter("type1", "bytes32", "application"),
+          createDataFilter("round1", "bytes32", config.roundId),
         ],
       },
     }).then((attestations = []) => {
@@ -46,8 +46,8 @@ export const projectsRouter = createTRPCRouter({
 
   search: publicProcedure.input(FilterSchema).query(async ({ input }) => {
     const filters = [
-      createDataFilter("type", "bytes32", "application"),
-      createDataFilter("round", "bytes32", config.roundId),
+      createDataFilter("type1", "bytes32", "application"),
+      createDataFilter("round1", "bytes32", config.roundId),
     ];
 
     if (input.search) {
@@ -57,7 +57,7 @@ export const projectsRouter = createTRPCRouter({
     return fetchAttestations([eas.schemas.approval], {
       where: {
         attester: { in: config.admins },
-        ...createDataFilter("type", "bytes32", "application"),
+        ...createDataFilter("type1", "bytes32", "application"),
       },
     }).then((attestations = []) => {
       const approvedIds = attestations
@@ -88,7 +88,7 @@ export const projectsRouter = createTRPCRouter({
         .then((attestations) =>
           Promise.all(
             attestations.map((attestation) =>
-              fetchMetadata(attestation.metadataPtr).then((data) => {
+              fetchMetadata(attestation.metadataPtr1).then((data) => {
                 const { payoutAddress } = data as unknown as {
                   payoutAddress: string;
                 };
@@ -109,14 +109,14 @@ export const projectsRouter = createTRPCRouter({
 
   allApproved: publicProcedure.query(async () => {
     const filters = [
-      createDataFilter("type", "bytes32", "application"),
-      createDataFilter("round", "bytes32", config.roundId),
+      createDataFilter("type1", "bytes32", "application"),
+      createDataFilter("round1", "bytes32", config.roundId),
     ];
 
     return fetchAttestations([eas.schemas.approval], {
       where: {
         attester: { in: config.admins },
-        ...createDataFilter("type", "bytes32", "application"),
+        ...createDataFilter("type1", "bytes32", "application"),
       },
     }).then((attestations = []) => {
       const approvedIds = attestations
@@ -136,14 +136,14 @@ export const projectsRouter = createTRPCRouter({
 
 export async function getAllApprovedProjects(): Promise<Attestation[]> {
   const filters = [
-    createDataFilter("type", "bytes32", "application"),
-    createDataFilter("round", "bytes32", config.roundId),
+    createDataFilter("type1", "bytes32", "application"),
+    createDataFilter("round1", "bytes32", config.roundId),
   ];
 
   return fetchAttestations([eas.schemas.approval], {
     where: {
       attester: { in: config.admins },
-      ...createDataFilter("type", "bytes32", "application"),
+      ...createDataFilter("type1", "bytes32", "application"),
     },
   }).then((attestations = []) => {
     const approvedIds = attestations

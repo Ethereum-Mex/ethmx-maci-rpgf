@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import { api } from "~/utils/api";
 
-export function useMetadata<T>(metadataPtr?: string) {
+export function useMetadata<T>(metadataPtr1?: string) {
   const query = api.metadata.get.useQuery(
-    { metadataPtr: String(metadataPtr) },
-    { enabled: Boolean(metadataPtr) },
+    { metadataPtr1: String(metadataPtr1) },
+    { enabled: Boolean(metadataPtr1) },
   );
 
   return {

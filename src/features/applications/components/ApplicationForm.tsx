@@ -312,7 +312,7 @@ function CreateApplicationButton({
   return (
     <div className="flex items-center justify-between">
       <div>
-        {!session && <div>You must connect wallet to create a list</div>}
+        {!session && <div>You must connect wallet to create an Application</div>}
         {!isCorrectNetwork && (
           <div className="flex items-center gap-2">
             You must be connected to {correctNetwork.name}

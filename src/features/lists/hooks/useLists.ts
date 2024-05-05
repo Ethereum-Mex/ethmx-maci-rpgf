@@ -15,6 +15,6 @@ export function useLists() {
   );
 }
 
-export function useListMetadata(metadataPtr?: string) {
-  return useMetadata<List>(metadataPtr);
+export function useListMetadata(metadataPtr1?: string) {
+  return useMetadata<List>(metadataPtr1);
 }

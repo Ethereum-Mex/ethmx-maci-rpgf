@@ -4,8 +4,8 @@ import { reverseKeys } from "~/utils/reverseKeys";
 
 export const MetadataSchema = z.object({
   name: z.string().min(3),
-  metadataType: z.enum(["1"]),
-  metadataPtr: z.string().min(3),
+  metadataType1: z.enum(["1"]),
+  metadataPtr1: z.string().min(3),
 });
 
 export const ProfileSchema = z.object({

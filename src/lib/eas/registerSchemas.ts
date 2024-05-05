@@ -19,9 +19,8 @@ This means applications, profiles and lists share the same schema and are differ
 Run: npx tsx src/lib/eas/registerSchemas
 */
 
-const approvalSchema = "bytes32 type, bytes32 round";
-const metadataSchema =
-  "string name, string metadataPtr, uint256 metadataType, bytes32 type, bytes32 round";
+const approvalSchema = "bytes32 type1, bytes32 round1";
+const metadataSchema = "string name1, string metadataPtr1, uint256 metadataType1, bytes32 type1, bytes32 round1";
 
 const schemas = [
   { name: "Voter Approval", schema: approvalSchema },
@@ -32,12 +31,14 @@ const schemas = [
 ];
 
 const provider = new ethers.AlchemyProvider(
-  config.network.name,
-  process.env.NEXT_PUBLIC_ALCHEMY_ID,
+  //config.network.name,
+  "optimism-sepolia",
 );
+
 
 const wallet = new ethers.Wallet(process.env.WALLET_PRIVATE_KEY!).connect(
   provider,
+  
 );
 
 const schemaRegistry = new SchemaRegistry(eas.contracts.schemaRegistry);

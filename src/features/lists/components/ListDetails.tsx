@@ -18,7 +18,7 @@ export default function ListDetails({
 }: {
   attestation?: Attestation;
 }) {
-  const metadata = useListMetadata(attestation?.metadataPtr);
+  const metadata = useListMetadata(attestation?.metadataPtr1);
 
   const { description, projects = [], impact } = metadata.data ?? {};
 
