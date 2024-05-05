@@ -63,6 +63,7 @@ export const MaciProvider: React.FC<MaciProviderProps> = ({ children }) => {
     [attestationId, data],
   );
 
+  /*
   const votingEndsAt = useMemo(
     () =>
       pollData
@@ -73,6 +74,11 @@ export const MaciProvider: React.FC<MaciProviderProps> = ({ children }) => {
         : new Date(),
     [pollData?.deployTime, pollData?.duration],
   );
+
+  */
+  const votingEndsAt = config.votingEndsAt
+  
+  console.log(votingEndsAt)
 
   const onSignup = useCallback(
     async (onError: () => void) => {

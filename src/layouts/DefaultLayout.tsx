@@ -16,7 +16,7 @@ type Props = PropsWithChildren<
 export const Layout = ({ children, ...props }: Props) => {
   const { address } = useAccount();
   const appState = getAppState();
-
+  console.log(appState)
   const navLinks = [
     {
       href: "/projects",
