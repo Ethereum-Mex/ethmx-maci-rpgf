@@ -119,7 +119,9 @@ export function parseDecodedMetadata(json: string): Metadata {
   const metadata = data.reduce(
     (acc, x) => ({ ...acc, [x.name]: x.value.value }),
     {} as Metadata,
+    
   );
+  console.log(data)
   return {
     ...metadata,
     // type: parseBytes(metadata.type),
@@ -160,3 +162,4 @@ export function createDataFilter(
     },
   };
 }
+

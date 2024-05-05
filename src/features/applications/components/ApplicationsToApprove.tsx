@@ -33,11 +33,10 @@ export function ApplicationItem({
   isLoading,
 }: Attestation & { isApproved?: boolean; isLoading?: boolean }) {
   const metadata = useMetadata<Application>(metadataPtr1);
-
+  console.log(metadata)
   const form = useFormContext();
 
   const { bio, fundingSources = [], impactMetrics = [] } = metadata.data ?? {};
-  console.log(name1)
   return (
     <div className="flex items-center gap-2 rounded border-b dark:border-gray-800 hover:dark:bg-gray-800">
       <label className="flex flex-1 cursor-pointer items-center gap-4 p-2">
@@ -48,7 +47,7 @@ export function ApplicationItem({
           type="checkbox"
         />
 
-        <ProjectAvatar isLoading={isLoading} size="sm" profileId={recipient} />
+        <ProjectAvatar isLoading={isLoading} size="sm" profileId={recipient} nameProject={name1} />
         <div className=" flex-1">
           <div className="flex items-center justify-between">
             <Skeleton isLoading={isLoading} className="mb-1 min-h-5 min-w-24">
@@ -100,6 +99,7 @@ export function ApplicationsToApprove() {
   const applications = useApplications();
   const approved = useApprovedApplications();
   const approve = useApproveApplication({});
+
 
   const approvedById = useMemo(
     () =>
@@ -158,6 +158,7 @@ Select the applications you want to approve. You must be a configured admin to a
           isApproved={approvedById?.get(item.id)}
         />
       ))}
+      
     </Form>
   );
 }

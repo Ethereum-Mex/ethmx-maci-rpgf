@@ -56,7 +56,7 @@ function Stats() {
   const chartData = useMemo(() => {
     const data = (projectsResults?.pages?.[0] ?? [])
       .map((project) => ({
-        x: project.name,
+        x: project.name1,
         y: projects[project.id]?.votes,
       }))
       .slice(0, 15);
