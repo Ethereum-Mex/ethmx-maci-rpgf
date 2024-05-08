@@ -21,15 +21,13 @@ import {
 import { config } from "~/config";
 import { getAppState } from "~/utils/state";
 import dynamic from "next/dynamic";
-import { useMaciSignup } from "~/hooks/useMaciSignup";
-import { useMaciVote } from "~/hooks/useMaciVote";
+import { useMaci } from "~/contexts/Maci";
 
 function BallotOverview() {
   const router = useRouter();
 
-  const { isRegistered, isEligibleToVote } = useMaciSignup();
   const { data: ballot } = useBallot();
-  const { initialVoiceCredits } = useMaciSignup();
+  const { isRegistered, isEligibleToVote, initialVoiceCredits } = useMaci();
 
   const sum = sumBallot(ballot?.votes);
 
@@ -78,36 +76,40 @@ function BallotOverview() {
       <BallotSection title="Voting ends in:">
         <VotingEndsIn />
       </BallotSection>
-      <BallotSection title="Projects added:">
-        <div>
-          <span className="text-gray-900 dark:text-gray-300">
-            {allocations.length}
-          </span>
-          /{projectCount?.count}
-        </div>
-      </BallotSection>
-      <BallotSection
-        title={
-          <div className="flex justify-between">
-            {config.tokenName} allocated:
-            <div
-              className={clsx("text-gray-900 dark:text-gray-300", {
-                ["text-primary-500"]: sum > initialVoiceCredits,
-              })}
-            >
-              {formatNumber(sum)} {config.tokenName}
+      {isRegistered && (
+        <BallotSection title="Projects added:">
+          <div>
+            <span className="text-gray-900 dark:text-gray-300">
+              {allocations.length}
+            </span>
+            /{projectCount?.count}
+          </div>
+        </BallotSection>
+      )}
+      {isRegistered && (
+        <BallotSection
+          title={
+            <div className="flex justify-between">
+              {config.tokenName} allocated:
+              <div
+                className={clsx("text-gray-900 dark:text-gray-300", {
+                  ["text-primary-500"]: sum > initialVoiceCredits,
+                })}
+              >
+                {formatNumber(sum)} {config.tokenName}
+              </div>
+            </div>
+          }
+        >
+          <Progress value={sum} max={initialVoiceCredits} />
+          <div className="flex justify-between text-xs">
+            <div>Total</div>
+            <div>
+              {formatNumber(initialVoiceCredits)} {config.tokenName}
             </div>
           </div>
-        }
-      >
-        <Progress value={sum} max={initialVoiceCredits} />
-        <div className="flex justify-between text-xs">
-          <div>Total</div>
-          <div>
-            {formatNumber(initialVoiceCredits)} {config.tokenName}
-          </div>
-        </div>
-      </BallotSection>
+        </BallotSection>
+      )}
       {!isRegistered || !isEligibleToVote ? null : ballot?.publishedAt ? (
         <Button className="w-full" as={Link} href={`/ballot/confirmation`}>
           View submitted ballot
@@ -125,7 +127,7 @@ function BallotOverview() {
 
 const SubmitBallotButton = ({ disabled = false }) => {
   const [isOpen, setOpen] = useState(false);
-  const { isLoading, pollId, error, onVote } = useMaciVote();
+  const { isLoading, pollId, error, onVote } = useMaci();
   const { data: ballot } = useBallot();
   const { lock, unlock } = useLockBallot();
 
