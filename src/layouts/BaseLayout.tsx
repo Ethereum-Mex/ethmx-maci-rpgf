@@ -45,6 +45,7 @@ export const BaseLayout = ({
 
   useEffect(() => {
     if (requireAuth && !address && !isConnecting) {
+      console.log('redirecting--------------------------------------------------------------------------------')
       void router.push("/");
     }
   }, [requireAuth, address, isConnecting, router]);
