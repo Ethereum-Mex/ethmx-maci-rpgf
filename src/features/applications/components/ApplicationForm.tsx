@@ -291,7 +291,7 @@ export function ApplicationForm({ address = "" }) {
               ? "Uploading metadata"
               : create.isAttesting
                 ? "Creating attestation"
-                : "Create application"
+                : "Enviar Aplicación"
           }
         />
       </Form>

@@ -40,8 +40,8 @@ function BallotOverview() {
 
   if (appState === "RESULTS")
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 ">
-        <BallotHeader>Results are live!</BallotHeader>
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
+        <BallotHeader>Los resultados están listos!</BallotHeader>
         <Button as={Link} href={"/projects/results"}>
           Go to results
         </Button>
@@ -50,21 +50,21 @@ function BallotOverview() {
 
   if (appState === "TALLYING")
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 ">
-        <BallotHeader>Voting has ended</BallotHeader>
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
+        <BallotHeader>La votación ha terminado</BallotHeader>
         <BallotSection title="Results are being tallied"></BallotSection>
       </div>
     );
 
   if (appState !== "VOTING")
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 ">
-        <BallotHeader>Voting hasn't started yet</BallotHeader>
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
+        <BallotHeader>Votaciones no han iniciado</BallotHeader>
         {appState === "REVIEWING" ? (
           <BallotSection title="Applications are being reviewed" />
         ) : (
           <Button as={Link} href={"/applications/new"}>
-            Create application
+            Enviar Aplicación
           </Button>
         )}
       </div>
@@ -72,7 +72,7 @@ function BallotOverview() {
 
   return (
     <div className="space-y-6">
-      <BallotHeader>Your ballot</BallotHeader>
+      <BallotHeader>Tu boleta</BallotHeader>
       <BallotSection title="Voting ends in:">
         <VotingEndsIn />
       </BallotSection>
@@ -112,13 +112,13 @@ function BallotOverview() {
       )}
       {!isRegistered || !isEligibleToVote ? null : ballot?.publishedAt ? (
         <Button className="w-full" as={Link} href={`/ballot/confirmation`}>
-          View submitted ballot
+          Ver voleta enviada
         </Button>
       ) : canSubmit ? (
         <SubmitBallotButton disabled={sum > initialVoiceCredits} />
       ) : (
         <Button className={"w-full"} variant="primary" disabled>
-          No projects added yet
+          No se han añadido proyectos
         </Button>
       )}
     </div>
@@ -176,7 +176,7 @@ const SubmitBallotButton = ({ disabled = false }) => {
           variant="warning"
           title={(submit.error as { message?: string })?.message}
         >
-          There was an error submitting the ballot.
+          Hubo un error enviando tu boleta.
         </Alert>
       ),
     },
@@ -195,7 +195,7 @@ const SubmitBallotButton = ({ disabled = false }) => {
         disabled={disabled}
         onClick={async () => setOpen(true)}
       >
-        Submit ballot
+        Enviar boleta
       </Button>
       <Dialog size="sm" isOpen={isOpen} onOpenChange={setOpen} title={title}>
         <p className="pb-8">{instructions}</p>
@@ -209,14 +209,14 @@ const SubmitBallotButton = ({ disabled = false }) => {
             className="flex-1"
             onClick={() => setOpen(false)}
           >
-            Back
+            Atrás
           </Button>
           <Button
             className="flex-1"
             variant="primary"
             onClick={() => submit.mutate()}
           >
-            Submit ballot
+            Enviar boleta
           </Button>
         </div>
       </Dialog>
