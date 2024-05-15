@@ -24,6 +24,8 @@ import { useMaci } from "~/contexts/Maci";
 
 type Props = { id?: string; name?: string };
 
+// ----------------------- in progress --------------------------
+
 export const ProjectAddToBallot = ({ id, name }: Props) => {
   const { address } = useAccount();
   const [isOpen, setOpen] = useState(false);
