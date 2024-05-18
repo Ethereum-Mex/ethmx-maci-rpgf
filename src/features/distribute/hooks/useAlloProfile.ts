@@ -30,7 +30,7 @@ export function useCreateAlloProfile() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async () => {
-      if (!address) throw new Error("Connect wallet first");
+      if (!address) throw new Error("Conecta tu wallet");
       if (!registry) throw new Error("Allo Registry not initialized");
 
       const { to, data } = registry.createProfile({

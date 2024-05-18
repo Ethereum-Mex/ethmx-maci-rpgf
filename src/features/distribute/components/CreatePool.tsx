@@ -55,9 +55,9 @@ function CheckAlloProfile(props: PropsWithChildren) {
 
   if (!profile.data) {
     return (
-      <Alert variant="info" title="No Allo profile found">
+      <Alert variant="info" title="No se encontró ningún perfil de Allo">
         <p className="mb-8">
-          You must create an Allo2 profile before you can create a pool.
+          Debes crear un perfil Allo2 antes de poder crear una votación.
         </p>
         <IconButton
           className={"w-full"}
@@ -67,9 +67,9 @@ function CheckAlloProfile(props: PropsWithChildren) {
           disabled={createProfile.isPending}
         >
           {createProfile.isPending ? (
-            <>Creating profile...</>
+            <>Creando Perfil...</>
           ) : (
-            <>Create profile</>
+            <>Crear Perfil</>
           )}
         </IconButton>
       </Alert>
@@ -108,11 +108,10 @@ function CreatePool() {
   return (
     <Alert title="Create pool" variant="info">
       <p className="mb-8 leading-6">
-        Before you can distribute funds to the projects you need to create a
-        pool.
+      Debes crear un perfil Allo2 antes de poder crear una votación.
       </p>
       <h3 className="mb-2 text-sm font-semibold uppercase tracking-widest text-gray-700 dark:text-gray-300">
-        Pool configuration
+        Configuración
       </h3>
 
       <Form
@@ -264,7 +263,7 @@ function FundPoolButton({
   if (!address || !session) {
     return (
       <Button className="w-full" disabled>
-        Connect wallet
+        Conectar wallet
       </Button>
     );
   }

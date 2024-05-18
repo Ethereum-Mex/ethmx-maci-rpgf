@@ -5,8 +5,8 @@ import { OrderBy, SortOrder } from "../types";
 export const sortLabels = {
   name_asc: "A to Z",
   name_desc: "Z to A",
-  time_asc: "Oldest",
-  time_desc: "Newest",
+  time_asc: "Más Antiguo",
+  time_desc: "Más Reciente",
 };
 export type SortType = keyof typeof sortLabels;
 

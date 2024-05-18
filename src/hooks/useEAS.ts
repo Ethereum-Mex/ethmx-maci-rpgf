@@ -14,7 +14,7 @@ export function useCreateAttestation() {
       values: Record<string, unknown>;
       schemaUID: string;
     }) => {
-      if (!signer) throw new Error("Connect wallet first");
+      if (!signer) throw new Error("Conecta tu wallet");
 
       return createAttestation(data, signer as JsonRpcSigner);
     },
@@ -26,7 +26,7 @@ export function useAttest() {
 
   return useMutation({
     mutationFn: (attestations: MultiAttestationRequest[]) => {
-      if (!signer) throw new Error("Connect wallet first");
+      if (!signer) throw new Error("Conecta tu wallet");
       const eas = createEAS(signer as JsonRpcSigner);
 
       return eas.multiAttest(attestations);

@@ -21,18 +21,18 @@ export const Layout = ({ children, ...props }: Props) => {
   const navLinks = [
     {
       href: "/projects",
-      children: "Projects",
+      children: "Proyectos",
     },
     {
       href: "/info",
-      children: "Info",
+      children: "Información",
     },
   ];
 
   if (appState === EAppState.RESULTS) {
     navLinks.push({
       href: "/stats",
-      children: "Stats",
+      children: "Estadísticas",
     });
   }
 
@@ -41,15 +41,15 @@ export const Layout = ({ children, ...props }: Props) => {
       ...[
         {
           href: "/applications",
-          children: "Applications",
+          children: "Aplicaciones",
         },
         {
           href: "/voters",
-          children: "Voters",
+          children: "Votantes",
         },
         {
           href: "/distribute",
-          children: "Distribute",
+          children: "Distribuir",
         },
       ],
     );
