@@ -59,7 +59,7 @@ export const ConnectButton = () => {
                     onClick={openConnectModal}
                     variant="primary"
                   >
-                    {isMobile ? "Connect" : "Connect wallet"}
+                    {isMobile ? "Conectar" : "Conectar wallet"}
                   </Button>
                 );
               }
@@ -177,7 +177,7 @@ const SignupButton = ({
 }: ComponentPropsWithRef<typeof Chip> & { loading: boolean }): JSX.Element => {
   return (
     <Chip className="gap-2" disabled={loading} {...props}>
-      {loading ? "Loading..." : "Sign up"}
+      {loading ? "Cargando..." : "Registrarse"}
     </Chip>
   );
 };

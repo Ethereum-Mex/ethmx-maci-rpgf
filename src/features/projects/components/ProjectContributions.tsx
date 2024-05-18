@@ -11,7 +11,7 @@ export default function ProjectContributions({ isLoading, project }: Props) {
   return (
     <>
       <Heading as="h3" size="2xl">
-        Contributions
+        Contribuciones
       </Heading>
       <div className="mb-4 gap-4 md:flex">
         <div className="md:w-2/3">
@@ -21,7 +21,7 @@ export default function ProjectContributions({ isLoading, project }: Props) {
         </div>
         <div className="md:w-1/3">
           <LinkBox
-            label="Contribution Links"
+            label="Links de Contribuciones"
             links={project?.contributionLinks}
             renderItem={(link) => {
               const icon: LucideIcon | undefined = {

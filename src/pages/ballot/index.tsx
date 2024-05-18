@@ -57,9 +57,9 @@ function BallotAllocationForm() {
 
   return (
     <div>
-      <h1 className="mb-2 text-2xl font-bold">Review your ballot</h1>
+      <h1 className="mb-2 text-2xl font-bold">Revisar tu Votación</h1>
       <p className="mb-6">
-        Once you have reviewed your vote allocation, you can submit your ballot.
+        Una vez que haya revisado tu asignación de votos, puede enviarlos.
       </p>
       <div className="mb-2 justify-between sm:flex">
         {ballot?.votes?.length ? <ClearBallot /> : null}
@@ -78,7 +78,7 @@ function BallotAllocationForm() {
         </div>
 
         <div className="flex h-16 items-center justify-between rounded-b-2xl border-t border-gray-300 px-8 py-4 text-lg font-semibold dark:border-gray-800">
-          <div>Total votes in ballot</div>
+          <div>Total de Votos</div>
           <div className="flex items-center gap-2">
             <TotalAllocation />
           </div>
@@ -105,18 +105,17 @@ function ClearBallot() {
   return (
     <>
       <Button variant="outline" onClick={() => setOpen(true)}>
-        Remove all projects from ballot
+        Quitar todos los proyectos de la Votación
       </Button>
 
       <Dialog
-        title="Are you sure?"
+        title="Estás de acuerdo?"
         size="sm"
         isOpen={isOpen}
         onOpenChange={setOpen}
       >
         <p className="mb-6 leading-6">
-          This will empty your ballot and remove all the projects you have
-          added.
+          Esto vaciará tus votos y eliminará todos los proyectos que hayas agregado.
         </p>
         <div className="flex justify-end">
           <Button
@@ -124,7 +123,7 @@ function ClearBallot() {
             // disabled={isPending}
             onClick={handleClearBallot}
           >
-            Yes I'm sure
+            {isPending ? <Spinner /> : "Si. Estoy de acuerdo"}
           </Button>
         </div>
       </Dialog>
@@ -135,14 +134,13 @@ function ClearBallot() {
 const EmptyBallot = () => (
   <div className="flex flex-1 items-center justify-center">
     <div className=" max-w-[360px] space-y-4">
-      <h3 className="text-center text-lg font-bold">Your ballot is empty</h3>
+      <h3 className="text-center text-lg font-bold">Tu votación está vacia</h3>
       <p className="text-center text-sm text-gray-700">
-        Your ballot currently doesn&apos;t have any projects added. Browse
-        through the available projects.
+        Tu votación actualmente no tiene ningún proyecto agregado. 
       </p>
       <div className="flex items-center justify-center gap-3">
         <Button as={Link} href={"/projects"}>
-          View projects
+          Ver Proyectos
         </Button>
       </div>
     </div>

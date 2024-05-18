@@ -29,11 +29,11 @@ function ApproveVoters() {
   const [isOpen, setOpen] = useState(false);
   const approve = useApproveVoters({
     onSuccess: () => {
-      toast.success("Voters approved successfully!");
+      toast.success("¡Votantes aprobados con éxito!");
       setOpen(false);
     },
     onError: (err: { reason?: string; data?: { message: string } }) =>
-      toast.error("Voter approve error", {
+      toast.error("Error al aprobar a los votantes", {
         description: err.reason ?? err.data?.message,
       }),
   });
@@ -48,16 +48,15 @@ function ApproveVoters() {
         {!isCorrectNetwork
           ? `Connect to ${correctNetwork.name}`
           : isAdmin
-            ? `Add voters`
-            : "You must be an admin"}
+            ? `Agregar votantes`
+            : "Debes ser Administrador"}
       </IconButton>
-      <Dialog isOpen={isOpen} onOpenChange={setOpen} title={`Approve voters`}>
+      <Dialog isOpen={isOpen} onOpenChange={setOpen} title={`Aprobar votantes`}>
         <p className="pb-4 leading-relaxed">
-          Add voters who will be allowed to vote in the round.
+          Agrega los votantes a quienes se les permitirá votar en la ronda.
         </p>
         <p className="pb-4 leading-relaxed">
-          Enter all the addresses as a comma-separated list below. Duplicates
-          and invalid addresses will automatically be removed.
+        Ingresa todas las direcciones como una lista separada por comas a continuación. Las direcciones duplicadas y no válidas se eliminarán automáticamente.
         </p>
         <Form
           schema={z.object({
@@ -72,7 +71,7 @@ function ApproveVoters() {
           <div className="mb-2"></div>
           <FormControl name="voters">
             <Textarea
-              placeholder="Comma-separated list of addresses to approve"
+              placeholder="Lista de direcciones separadas por comas para aprobar"
               rows={8}
             />
           </FormControl>
@@ -102,7 +101,7 @@ function ApproveButton({ isLoading = false, isAdmin = false }) {
       variant="primary"
       type="submit"
     >
-      {isAdmin ? `Approve ${selectedCount} voters` : "You must be an admin"}
+      {isAdmin ? `Aprobar ${selectedCount} votantes` : "Debes ser administrador"}
     </IconButton>
   );
 }

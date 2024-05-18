@@ -56,7 +56,7 @@ export default function ProjectDetails({
       <p className="text-2xl">{bio}</p>
       <div>
         <Heading as="h2" size="3xl">
-          Impact statements
+          Descripción del Impacto
         </Heading>
 
         <ProjectContributions
@@ -66,7 +66,7 @@ export default function ProjectDetails({
 
         <ProjectImpact isLoading={metadata.isLoading} project={metadata.data} />
         <Heading as="h3" size="2xl">
-          Past grants and funding
+          Grants y Financiamientos Pasados
         </Heading>
         <div className="space-y-4">
           {fundingSources?.map((source, i) => {
