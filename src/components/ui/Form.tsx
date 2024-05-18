@@ -222,7 +222,7 @@ export function FieldArray<S extends z.Schema>({
           icon={PlusIcon}
           onClick={() => append({})}
         >
-          Add row
+          Añadir fila
         </IconButton>
       </div>
     </div>

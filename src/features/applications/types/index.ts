@@ -17,33 +17,40 @@ export const ProfileSchema = z.object({
 export type Profile = z.infer<typeof ProfileSchema>;
 
 export const contributionTypes = {
-  CONTRACT_ADDRESS: "Contract address",
+  CONTRACT_ADDRESS: "Dirección de Contrato",
+  NOTION: "Notion",
   GITHUB_REPO: "Github repo",
-  OTHER: "Other",
+  OTHER: "Otro",
 } as const;
 
 export const fundingSourceTypes = {
-  GOVERNANCE_FUND: "Governance fund",
-  PARTNER_FUND: "Partner fund",
-  REVENUE: "Revenue",
-  OTHER: "Other",
+  GOVERNANCE_FUND: "Fondo de Gobernanza",
+  PARTNER_FUND: "Fondo de Socios",
+  REVENUE: "Ingresos",
+  OTHER: "Otro",
+} as const;
+
+export const impactTypes = {
+  DIRECT_IMPACT: "Impacto Directo",
+  INDIRECT_IMPACT: "Impacto Indirecto",
 } as const;
 
 export const ApplicationSchema = z.object({
   name: z.string().min(3),
-  bio: z.string().min(3),
+  bio: z.string().min(3).max(500),
   twitterUrl: z.string().url().min(1),
   telegramUrl: z.string().url().min(1), //New
   email: z.string().email(), //New
   payoutAddress: EthAddressSchema,
-  contributionDescription: z.string().min(3),
-  impactDescription: z.string().min(3),
+  contributionDescription: z.string().min(3).max(500),
+  impactDescription: z.string().min(3).max(500),
   impactCategory: z.array(z.string()).min(1),
   impactAmount: z.number(),
+  impactClassification: z.nativeEnum(reverseKeys(impactTypes)),
   contributionLinks: z
     .array(
       z.object({
-        description: z.string().min(3),
+        description: z.string().min(3).max(500),
         type: z.nativeEnum(reverseKeys(contributionTypes)),
         url: z.string().url(),
       }),
@@ -52,7 +59,7 @@ export const ApplicationSchema = z.object({
   impactMetrics: z
     .array(
       z.object({
-        description: z.string().min(3),
+        description: z.string().min(3).max(500),
         url: z.string().url(),
         number: z.number(),
       }),
@@ -61,7 +68,7 @@ export const ApplicationSchema = z.object({
   fundingSources: z
     .array(
       z.object({
-        description: z.string().min(3),
+        description: z.string().min(3).max(500),
         amount: z.number(),
         currency: z.string().min(3).max(4),
         type: z.nativeEnum(reverseKeys(fundingSourceTypes)),

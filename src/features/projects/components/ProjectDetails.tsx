@@ -18,7 +18,7 @@ export default function ProjectDetails({
 }) {
   const metadata = useProjectMetadata(attestation?.metadataPtr);
 
-  const { bio, twitterUrl, telegramUrl, email, payoutAddress, fundingSources, impactAmount } =
+  const { bio, twitterUrl, telegramUrl, email, payoutAddress, fundingSources } =
     metadata.data ?? {};
 
   return (
@@ -72,11 +72,10 @@ export default function ProjectDetails({
           {fundingSources?.map((source, i) => {
             const type =
               {
-                OTHER: "Other",
-                RETROPGF_2: "RetroPGF2",
-                GOVERNANCE_FUND: "Governance Fund",
-                PARTNER_FUND: "Partner Fund",
-                REVENUE: "Revenue",
+                OTHER: "Otro",
+                GOVERNANCE_FUND: "Fondo de Gobernanza",
+                PARTNER_FUND: "Fondo de Socios",
+                REVENUE: "Ingresos",
               }[source.type] ?? source.type;
             return (
               <div key={i} className="flex items-center gap-4">

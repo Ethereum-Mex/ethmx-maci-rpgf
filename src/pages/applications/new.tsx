@@ -15,11 +15,10 @@ export default function NewProjectPage() {
     <Layout>
       <Markdown className={"mb-8"}>
         {`
-### New Application
-Fill out this form to create an application for your project. It will
-then be reviewed by our admins. 
+### Nueva Aplicación
+Rellena este formulario para crear una solicitud para tu proyecto. Posteriormente será revisada por nuestros administradores.
 
-Your progress is saved locally so you can return to this page to resume your application.
+Tu progreso se guarda localmente para que puedas volver a esta página y reanudar tu solicitud.
 `}
       </Markdown>
       {state !== EAppState.APPLICATION ? (
