@@ -77,7 +77,7 @@ export function ApplicationForm({ address = "" }) {
       >
         <FormSection
           title="Perfil"
-          description="Configura tu nombre de perfil, elige tu avatar  e imagen de fondo para tu proyecto."
+          description="Configura tu nombre de perfil, elige tu avatar  e imagen de fondo para tu proyecto"
         >
           <FormControl name="profile.name" label="Nombre de perfil" required>
             <Input placeholder="Tu Nombre" />
