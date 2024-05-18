@@ -20,6 +20,7 @@ import {
   ProfileSchema,
   contributionTypes,
   fundingSourceTypes,
+  impactTypes
 } from "../types";
 import { useCreateApplication } from "../hooks/useCreateApplication";
 import { toast } from "sonner";
@@ -50,8 +51,8 @@ export function ApplicationForm({ address = "" }) {
   });
   if (create.isSuccess) {
     return (
-      <Alert variant="success" title="Application created!">
-        It will now be reviewed by our admins.
+      <Alert variant="success" title="Aplicación enviada!">
+        Será revisada por nuestros administradores
       </Alert>
     );
   }
@@ -75,23 +76,23 @@ export function ApplicationForm({ address = "" }) {
         }}
       >
         <FormSection
-          title="Profile"
-          description="Configure your profile name and choose your avatar and background for your project."
+          title="Perfil"
+          description="Configura tu nombre de perfil, elige tu avatar  e imagen de fondo para tu proyecto."
         >
-          <FormControl name="profile.name" label="Profile name" required>
-            <Input placeholder="Your name" />
+          <FormControl name="profile.name" label="Nombre de perfil" required>
+            <Input placeholder="Tu Nombre" />
           </FormControl>
           <div className="mb-4 gap-4 md:flex">
             <FormControl
               required
-              label="Project avatar"
+              label="Avatar del Proyecto"
               name="profile.profileImageUrl"
             >
               <ImageUpload className="h-48 w-48 " />
             </FormControl>
             <FormControl
               required
-              label="Project background image"
+              label="Imagen de fondo del proyecto"
               name="profile.bannerImageUrl"
               className="flex-1"
             >
@@ -100,15 +101,15 @@ export function ApplicationForm({ address = "" }) {
           </div>
         </FormSection>
         <FormSection
-          title="Application"
-          description="Configure your application and the payout address to where tokens will be transferred."
+          title="Aplicación"
+          description="Configura tu aplicación y la dirección de pago a la que se transferirán los fondos."
         >
-          <FormControl name="application.name" label="Name" required>
-            <Input placeholder="Project name" />
+          <FormControl name="application.name" label="Nombre" required>
+            <Input placeholder="Nombre del Proyecto" />
           </FormControl>
 
-          <FormControl name="application.bio" label="Description" required>
-            <Textarea rows={4} placeholder="Project description" />
+          <FormControl name="application.bio" label="Descripción" required>
+            <Textarea rows={4} placeholder="Descripción del Proyecto" />
           </FormControl>
           <div className="gap-4 md:flex">
 
@@ -147,7 +148,7 @@ export function ApplicationForm({ address = "" }) {
             <FormControl
                 className="flex-1"
                 name="application.payoutAddress"
-                label="Payout address"
+                label="Dirección de pago EVM (NO exchange)"
                 required
               >
               <Input placeholder="0x..." />
@@ -156,36 +157,36 @@ export function ApplicationForm({ address = "" }) {
         </FormSection>
 
         <FormSection
-          title="Contribution & Impact"
-          description="Describe the contribution and impact of your project."
+          title="Contribución e Impacto"
+          description="Describe la contribución y el impacto de tu proyecto"
         >
           <FormControl
             name="application.contributionDescription"
-            label="Contribution description"
+            label="Descripción de la Contribución"
             required
           >
             <Textarea
               rows={4}
-              placeholder="What have your project contributed to?"
+              placeholder="¿Cuál ha sido la contribución de tu proyecto?"
             />
           </FormControl>
 
           <FormControl
             name="application.impactDescription"
-            label="Impact description"
+            label="Descripción del Impacto"
             required
           >
             <Textarea
               rows={4}
-              placeholder="What impact has your project had?"
+              placeholder="¿Cuál ha sido el impacto de tu proyecto?"
             />
           </FormControl>
           <ImpactTags />
         </FormSection>
 
         <FormSection
-          title="Contribution links"
-          description="Where can we find your contributions?"
+          title="Links de Contribución"
+          description="¿Dónde podemos encontrar las contribuciones?"
         >
           <FieldArray
             name="application.contributionLinks"
@@ -196,7 +197,7 @@ export function ApplicationForm({ address = "" }) {
                   name={`application.contributionLinks.${i}.description`}
                   required
                 >
-                  <Input placeholder="Description" />
+                  <Input placeholder="Descripción" />
                 </FormControl>
                 <FormControl
                   name={`application.contributionLinks.${i}.url`}
@@ -222,8 +223,8 @@ export function ApplicationForm({ address = "" }) {
         </FormSection>
 
         <FormSection
-          title="Impact metrics"
-          description="What kind of impact have your project made?"
+          title="Métricas de Impacto"
+          description="¿Qué impacto ha tenido tu proyecto?"
         >
           <FieldArray
             name="application.impactMetrics"
@@ -234,7 +235,7 @@ export function ApplicationForm({ address = "" }) {
                   name={`application.impactMetrics.${i}.description`}
                   required
                 >
-                  <Input placeholder="Description" />
+                  <Input placeholder="Descripción" />
                 </FormControl>
                 <FormControl
                   name={`application.impactMetrics.${i}.url`}
@@ -247,7 +248,7 @@ export function ApplicationForm({ address = "" }) {
                   required
                   valueAsNumber
                 >
-                  <Input type="number" placeholder="Number" />
+                  <Input type="number" placeholder="Número" />
                 </FormControl>
               </>
             )}
@@ -260,15 +261,32 @@ export function ApplicationForm({ address = "" }) {
               required
               valueAsNumber
             >
-              <Input type="number" placeholder="Amount" />
+              <Input type="number" placeholder="Cantidad" />
             </FormControl>
+
+
+            <FormControl
+                  name={`application.impactClassification`}
+                  label="¿Cómo clasificarías tu impacto?"
+                  required
+                >
+                  <Select>
+                    {Object.entries(impactTypes).map(
+                      ([value, label]) => (
+                        <option key={value} value={value}>
+                          {label}
+                        </option>
+                      ),
+                    )}
+                  </Select>
+            </FormControl> 
 
           </div>
         </FormSection>
 
         <FormSection
-          title="Funding sources"
-          description="From what sources have you received funding?"
+          title="Fuentes de financiamientos"
+          description="¿De qué fuentes ha recibido financiación?"
         >
           <FieldArray
             name="application.fundingSources"
@@ -279,14 +297,14 @@ export function ApplicationForm({ address = "" }) {
                   name={`application.fundingSources.${i}.description`}
                   required
                 >
-                  <Input placeholder="Description" />
+                  <Input placeholder="Descripción" />
                 </FormControl>
                 <FormControl
                   name={`application.fundingSources.${i}.amount`}
                   required
                   valueAsNumber
                 >
-                  <Input type="number" placeholder="Amount" />
+                  <Input type="number" placeholder="Cantidad" />
                 </FormControl>
                 <FormControl
                   name={`application.fundingSources.${i}.currency`}
@@ -326,10 +344,10 @@ export function ApplicationForm({ address = "" }) {
           isLoading={create.isPending}
           buttonText={
             create.isUploading
-              ? "Uploading metadata"
+              ? "Subiendo datos"
               : create.isAttesting
-                ? "Creating attestation"
-                : "Create application"
+                ? "Creando Certificado"
+                : "Enviar Aplicación"
           }
         />
       </Form>
@@ -386,7 +404,7 @@ function ImpactTags() {
   return (
     <div className="mb-4">
       <Label>
-        Impact categories<span className="text-red-300">*</span>
+      Categorías de impacto<span className="text-red-300">*</span>
       </Label>
       <div className="flex flex-wrap gap-2">
         {Object.entries(impactCategories).map(([value, { label }]) => {
