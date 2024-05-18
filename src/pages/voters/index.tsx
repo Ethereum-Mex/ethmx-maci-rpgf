@@ -10,7 +10,7 @@ export default function VotersPage() {
     <AdminLayout title="Manage voters">
       <div className="flex items-center justify-between">
         <Heading as="h1" size="3xl">
-          Approved voters
+          Votantes Aprobados
         </Heading>
         <ApproveVoters />
       </div>

@@ -45,7 +45,7 @@ export default function DistributePage() {
                 }}
               >
                 <div className="gap-2">
-                  <FormControl name="style" label="Payout style">
+                  <FormControl name="style" label="Estilo de Pago">
                     <Select disabled={settings.isLoading} className={"w-full"}>
                       <option value="custom">Custom</option>
                       <option value="op">OP-Style</option>
@@ -58,7 +58,7 @@ export default function DistributePage() {
                     className="w-full"
                     disabled={setConfig.isPending}
                   >
-                    Update calculation
+                    Actualizar cálculo
                   </Button>
                 </div>
               </Form>
@@ -68,7 +68,7 @@ export default function DistributePage() {
       }
     >
       {new Date() < config.reviewEndsAt ? (
-        <div>Voting hasn't started yet</div>
+        <div>La votación aún no comienza</div>
       ) : (
         <div>
           {setConfig.isPending ? (
@@ -91,8 +91,8 @@ function MinimumQuorum() {
   return (
     <FormControl
       name="threshold"
-      label="Minimum Quorum"
-      hint="Only for OP-style payouts"
+      label="Quórum Mínimo"
+      hint="Sólo para pagos OP-style"
       valueAsNumber
     >
       <Input type="number" disabled={style !== "op"} />
@@ -108,7 +108,7 @@ function VoterCount() {
   return (
     <div className="mb-4 flex flex-col items-center">
       <h3 className="mb-2 text-sm font-semibold uppercase tracking-widest text-gray-500">
-        Ballots submitted
+        Votos enviados
       </h3>
       <div className="pt-1 text-center text-2xl">
         <Skeleton

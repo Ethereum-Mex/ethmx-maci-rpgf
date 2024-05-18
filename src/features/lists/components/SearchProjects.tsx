@@ -49,7 +49,7 @@ export const SearchProjects = ({ addedProjects, onSelect }: Props) => {
           onFocus={() => setOpen(true)}
           onKeyDown={() => setOpen(true)}
           onValueChange={setSearch}
-          placeholder="Search projects..."
+          placeholder="Buscar nombre de proyecto..."
         />
 
         {projectsData.length ? (

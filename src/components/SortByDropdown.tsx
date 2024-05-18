@@ -17,9 +17,9 @@ export const SortByDropdown = ({ value, onChange, options = [] }: Props) => {
           icon={ArrowUpDown}
           variant="outline"
           aria-label="Sort by"
-          className="w-48 justify-start"
+          className="w-50 justify-start"
         >
-          Sort by: {value && sortLabels[value]}
+          Ordenado por: {value && sortLabels[value]}
         </IconButton>
       </DropdownMenu.Trigger>
 

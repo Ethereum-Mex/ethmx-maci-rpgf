@@ -57,8 +57,8 @@ export function ApplicationItem({
           </div>
           <div>
             <div className="flex gap-4 text-xs dark:text-gray-400">
-              <div>{fundingSources.length} funding sources</div>
-              <div>{impactMetrics.length} impact metrics</div>
+              <div>{fundingSources.length} Fuentes de Financimiento</div>
+              <div>{impactMetrics.length} Métricas de Impacto</div>
             </div>
             <div className="line-clamp-2 text-sm dark:text-gray-300">{bio}</div>
           </div>
@@ -70,9 +70,9 @@ export function ApplicationItem({
           </Skeleton>
         </div>
         {isApproved ? (
-          <Badge variant="success">Approved</Badge>
+          <Badge variant="success">Aprobada</Badge>
         ) : (
-          <Badge>Pending</Badge>
+          <Badge>Pendiente</Badge>
         )}
         <Button
           disabled={isLoading}
@@ -83,7 +83,7 @@ export function ApplicationItem({
           type="button"
           variant=""
         >
-          Review
+          Revisar
         </Button>
       </label>
     </div>
@@ -120,17 +120,17 @@ export function ApplicationsToApprove() {
       schema={ApplicationsToApproveSchema}
       onSubmit={(values) => approve.mutate(values.selected)}
     >
-      <Markdown>{`### Review applications
-Select the applications you want to approve. You must be a configured admin to approve applications.
+      <Markdown>{`### Revisión de Aplicaciones
+Seleccione las solicitudes que desea aprobar. Debes ser administrador para aprobarlas.
 
 `}</Markdown>
       <Alert>
-        Newly submitted applications can take 10 minutes to show up.
+        Las solicitudes recién enviadas pueden tardar alrededor de 10 minutos en mostrarse.
       </Alert>
       <div className="my-2 flex items-center justify-between">
         <div className="text-gray-300">
           {applications.data?.length
-            ? `${applications.data?.length} applications found`
+            ? `${applications.data?.length} aplicaciones encontradas`
             : ""}
         </div>
         <div className="flex gap-2">
@@ -180,7 +180,7 @@ function SelectAllButton({
         form.setValue("selected", selectAll);
       }}
     >
-      {isAllSelected ? "Deselect all" : "Select all"}
+      {isAllSelected ? "Deseleccionar Todo" : "Seleccionar Todo"}
     </Button>
   );
 }
@@ -202,8 +202,8 @@ function ApproveButton({ isLoading = false }) {
       {!isCorrectNetwork
         ? `Connect to ${correctNetwork.name}`
         : isAdmin
-          ? `Approve ${selectedCount} applications`
-          : "You must be an admin"}
+          ? `Aprobar ${selectedCount} aplicaciones`
+          : "Debes ser admin"}
     </Button>
   );
 }

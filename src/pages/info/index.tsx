@@ -5,23 +5,23 @@ import { formatDate } from "~/utils/time";
 
 const steps = [
   {
-    label: "Registration",
+    label: "Registro",
     date: config.startsAt,
   },
   {
-    label: "Review & Approval",
+    label: "Revisión y Aprobación",
     date: config.registrationEndsAt,
   },
   {
-    label: "Voting",
+    label: "Votación",
     date: config.reviewEndsAt,
   },
   {
-    label: "Tallying",
+    label: "Conteo de Votos",
     date: undefined,
   },
   {
-    label: "Distribution",
+    label: "Distribución",
     date: undefined,
   },
 ];
@@ -31,7 +31,7 @@ export default function InfoPage() {
 
   return (
     <Layout>
-      <div className="hidden h-4 w-4/5 overflow-hidden rounded-full border md:block">
+      <div className="hidden h-4 w-5/5 overflow-hidden rounded-full border md:block">
         <div
           className={"h-full bg-white transition-all"}
           style={{ width: `${progress * 100}%` }}
