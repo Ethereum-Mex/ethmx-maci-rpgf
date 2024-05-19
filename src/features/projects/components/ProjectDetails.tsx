@@ -19,6 +19,8 @@ export default function ProjectDetails({
   const metadata = useProjectMetadata(attestation?.metadataPtr);
 
   const { bio, twitterUrl, telegramUrl, email, payoutAddress, fundingSources } =
+
+  const { bio, twitterUrl, telegramUrl, email, payoutAddress, fundingSources, impactAmount } =
     metadata.data ?? {};
 
   return (

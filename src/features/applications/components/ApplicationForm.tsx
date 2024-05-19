@@ -149,6 +149,7 @@ export function ApplicationForm({ address = "" }) {
                 className="flex-1"
                 name="application.payoutAddress"
                 label="Dirección de pago EVM (NO exchange)"
+
                 required
               >
               <Input placeholder="0x..." />
@@ -280,7 +281,6 @@ export function ApplicationForm({ address = "" }) {
                     )}
                   </Select>
             </FormControl> 
-
           </div>
         </FormSection>
 

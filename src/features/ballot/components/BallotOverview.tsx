@@ -83,6 +83,7 @@ function BallotOverview() {
   return (
     <div className="space-y-6">
       <BallotHeader>Voting Round: {config.roundId}</BallotHeader>
+
       <BallotSection title="La votación termina en">
         <VotingEndsIn />
       </BallotSection>

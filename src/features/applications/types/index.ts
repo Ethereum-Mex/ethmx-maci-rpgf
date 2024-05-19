@@ -37,6 +37,7 @@ export const impactTypes = {
 
 export const ApplicationSchema = z.object({
   name: z.string().min(3),
+
   bio: z.string().min(3).max(500),
   twitterUrl: z.string().url().min(1),
   telegramUrl: z.string().url().min(1), //New
