@@ -275,10 +275,6 @@ const EmptyBallot = () => (
         <Button as={Link} href={"/projects"}>
           Ver Proyectos
         </Button>
-        <div className="text-gray-700">o</div>
-        <Button as={Link} href={"/lists"}>
-          Ver Listas
-        </Button>
       </div>
     </div>
   </div>
