@@ -46,7 +46,7 @@ function BallotOverview() {
 
   if (appState === EAppState.RESULTS)
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 ">
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
         <BallotHeader>Results are live!</BallotHeader>
         <Button as={Link} href={"/projects/results"}>
           Go to results
@@ -56,7 +56,7 @@ function BallotOverview() {
 
   if (appState === EAppState.TALLYING)
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 ">
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
         <BallotHeader>La votación ha finalizado</BallotHeader>
         <BallotSection title="Votos están siendo contados"></BallotSection>
       </div>
@@ -64,7 +64,7 @@ function BallotOverview() {
 
   if (appState !== EAppState.VOTING)
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 ">
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
         <BallotHeader>La votación aún no comienza</BallotHeader>
         {appState === EAppState.REVIEWING ? (
           <BallotSection title="Las aplicaciones están siendo revisadas" />
@@ -77,7 +77,7 @@ function BallotOverview() {
     );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-gray-50 rounded-xl py-6 px-3">
       <BallotHeader>Voting Round: {config.roundId}</BallotHeader>
       <BallotSection title="La votación termina en">
         <VotingEndsIn />
