@@ -128,7 +128,7 @@ Seleccione las solicitudes que desea aprobar. Debes ser administrador para aprob
         Las solicitudes recién enviadas pueden tardar alrededor de 10 minutos en mostrarse.
       </Alert>
       <div className="my-2 flex items-center justify-between">
-        <div className="text-gray-300">
+        <div>
           {applications.data?.length
             ? `${applications.data?.length} aplicaciones encontradas`
             : ""}
