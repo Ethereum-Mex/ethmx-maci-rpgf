@@ -62,18 +62,29 @@ export default function BallotPage() {
 
 function BallotAllocationForm() {
   const form = useFormContext<{ votes: Vote[] }>();
-  const { pollData } = useMaci();
+  const { pollData, initialVoiceCredits} = useMaci();
   const pollId = pollData?.id.toString();
 
   const save = useSaveBallot();
   const appState = getAppState();
 
   const votes = form.watch("votes");
+  const { data: ballot } = useBallot();
+  const sum = sumBallot(ballot?.votes);
+
   function handleSaveBallot({ votes }: { votes: Vote[] }) {
     save.mutate({ votes, pollId: pollId! });
   }
 
-
+  function getCustomError (){
+      if(sum < initialVoiceCredits){
+        return "Todos tus votos deben ser utilizados"
+      } if (sum > initialVoiceCredits) {
+        return "Excediste tu cantidad de votos permitidos"
+      } else {
+        return "Todos los campos deben ser completados con valores numéricos."
+      }
+    }
 
   return (
     <div>
@@ -82,13 +93,13 @@ function BallotAllocationForm() {
         Una vez que haya revisado tu asignación de votos, puede enviarlos.
       </p>
       {
-      save.error && (
+        (save.error || sum < initialVoiceCredits || sum > initialVoiceCredits) && (
         <Alert
           icon={AlertCircle}
-          title={"Todos los campos deben ser completados con valores numéricos."}
+          title={getCustomError()}
           className="mb-4"
           variant="warning"
-        ></Alert>
+        />
       )}
       <div className="mb-2 justify-between lg:flex">
         <div className="flex gap-2 mb-2q lg:mb-0">

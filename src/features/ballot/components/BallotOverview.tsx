@@ -103,7 +103,7 @@ function BallotOverview() {
                 {config.tokenName} allocated:
                 <div
                   className={clsx("text-gray-900 dark:text-gray-300", {
-                    ["text-primary-500"]: sum > initialVoiceCredits,
+                    ["text-primary-500"]: sum > initialVoiceCredits || sum < initialVoiceCredits,
                   })}
                 >
                   {formatNumber(sum)} {config.tokenName}
@@ -131,7 +131,7 @@ function BallotOverview() {
           Ver votación enviada
         </Button>
       ) : canSubmit ? (
-        <SubmitBallotButton disabled={sum > initialVoiceCredits} />
+        <SubmitBallotButton disabled={sum > initialVoiceCredits || sum < initialVoiceCredits} />
       ) : viewBallot ? (
         <Button className="w-full" variant="primary" as={Link} href={`/ballot`}>
           Ver mi votación
@@ -215,7 +215,7 @@ const SubmitBallotButton = ({ disabled = false }) => {
         disabled={disabled}
         onClick={async () => setOpen(true)}
       >
-        Submit ballot
+        Enviar votación
       </Button>
       <Dialog size="sm" isOpen={isOpen} onOpenChange={setOpen} title={title}>
         <p className="pb-8">{instructions}</p>
@@ -236,7 +236,7 @@ const SubmitBallotButton = ({ disabled = false }) => {
             variant="primary"
             onClick={() => submit.mutate()}
           >
-            Submit ballot
+            Enviar votación
           </Button>
         </div>
       </Dialog>
