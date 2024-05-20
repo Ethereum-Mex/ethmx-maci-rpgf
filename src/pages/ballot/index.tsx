@@ -55,6 +55,8 @@ function BallotAllocationForm() {
   const appState = getAppState();
   const { ballot } = useBallot();
 
+
+
   return (
     <div>
       <h1 className="mb-2 text-2xl font-bold">Revisar tu Votación</h1>
@@ -84,6 +86,7 @@ function BallotAllocationForm() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }
