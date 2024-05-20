@@ -73,22 +73,25 @@ function BallotAllocationForm() {
     save.mutate({ votes, pollId: pollId! });
   }
 
+
+
   return (
     <div>
       <h1 className="mb-2 text-2xl font-bold">Revisar tu Votación</h1>
       <p className="mb-6">
         Una vez que haya revisado tu asignación de votos, puede enviarlos.
       </p>
-      {save.error && (
+      {
+      save.error && (
         <Alert
           icon={AlertCircle}
-          title={save.error?.message}
+          title={"Todos los campos deben ser completados con valores numéricos."}
           className="mb-4"
           variant="warning"
         ></Alert>
       )}
-      <div className="mb-2 justify-between sm:flex">
-        <div className="flex gap-2">
+      <div className="mb-2 justify-between lg:flex">
+        <div className="flex gap-2 mb-2q lg:mb-0">
           <ImportCSV />
           <ExportCSV votes={votes} />
         </div>
@@ -116,6 +119,7 @@ function BallotAllocationForm() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }
