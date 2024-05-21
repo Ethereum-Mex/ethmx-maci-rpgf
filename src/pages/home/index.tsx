@@ -12,7 +12,7 @@ const Home = () => {
           <img src="/images/animalsR.png" className='absolute right-0 z-0 top-20 opacity-70 w-1/2 md:w-auto lg:opacity-100 '/>
           <img src='/images/ETHPGF-icon.png' className='z-10 p-4 w-full md:w-3/5 2xl:w-auto'/>
           <h1 className='text-center mt-8 z-10'>RONDA DE FINANCIAMIENTO PARA COMUNIDADES Y PROYECTOS MEXICANOS</h1>
-          <p className='font-bold z-10 text-center'>DEL 22 DE MAYO AL 5 DE JUNIO</p>
+          <p className='font-bold z-10 text-center'>DEL 29 DE MAYO AL 12 DE JUNIO</p>
           <Link  href={"/projects"} className='text-3xl bg-PGFOrangeL p-4 m-8 rounded-full text-white z-10 items-center font-montserrat font-medium'>
             Aplica aquí
           </Link>
