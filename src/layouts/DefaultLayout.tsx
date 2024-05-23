@@ -27,6 +27,10 @@ export const Layout = ({ children, ...props }: Props) => {
       href: "/info",
       children: "Información",
     },
+    {
+      href: "/faq",
+      children: "FAQ"
+    }
   ];
 
   if (appState === EAppState.RESULTS) {
