@@ -9,7 +9,7 @@ export const MetadataSchema = z.object({
 });
 
 export const ProfileSchema = z.object({
-  name: z.string().min(3),
+  name: z.string().min(5),
   profileImageUrl: z.string(),
   bannerImageUrl: z.string(),
 });
@@ -36,21 +36,21 @@ export const impactTypes = {
 } as const;
 
 export const ApplicationSchema = z.object({
-  name: z.string().min(3),
-  bio: z.string().min(3).max(500),
+  name: z.string().min(15),
+  bio: z.string().min(140).max(500),
   twitterUrl: z.string().url().min(1),
   telegramUrl: z.string().url().min(1), //New
   email: z.string().email(), //New
   payoutAddress: EthAddressSchema,
-  contributionDescription: z.string().min(3).max(500),
-  impactDescription: z.string().min(3).max(500),
+  contributionDescription: z.string().min(140).max(500),
+  impactDescription: z.string().min(140).max(500),
   impactCategory: z.array(z.string()).min(1),
   impactAmount: z.number(),
   impactClassification: z.nativeEnum(reverseKeys(impactTypes)),
   contributionLinks: z
     .array(
       z.object({
-        description: z.string().min(3).max(500),
+        description: z.string().min(15).max(500),
         type: z.nativeEnum(reverseKeys(contributionTypes)),
         url: z.string().url(),
       }),
@@ -59,7 +59,7 @@ export const ApplicationSchema = z.object({
   impactMetrics: z
     .array(
       z.object({
-        description: z.string().min(3).max(500),
+        description: z.string().min(15).max(500),
         url: z.string().url(),
         number: z.number(),
       }),
@@ -68,7 +68,7 @@ export const ApplicationSchema = z.object({
   fundingSources: z
     .array(
       z.object({
-        description: z.string().min(3).max(500),
+        description: z.string().min(15).max(500),
         amount: z.number(),
         currency: z.string().min(3).max(4),
         type: z.nativeEnum(reverseKeys(fundingSourceTypes)),
