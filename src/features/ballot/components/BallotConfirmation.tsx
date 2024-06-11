@@ -27,7 +27,7 @@ export const BallotConfirmation = ({ votes }: { votes: Vote[] }) => {
                 Tu voto ha sido recibido 🥳
               </h3>
               <p className="mb-10 text-gray-700 dark:text-gray-300">
-              Gracias por participar en RetroPGF 3. ¡Ayúdanos a mejorar el proceso brindándonos comentarios sobre tu experiencia en esta ronda!
+              Gracias por participar ¡Ayúdanos a mejorar el proceso brindándonos comentarios sobre tu experiencia en esta ronda!
               </p>
               <Button
                 variant="primary"
@@ -64,7 +64,7 @@ export const BallotConfirmation = ({ votes }: { votes: Vote[] }) => {
         <Card>
           <div>
             <h5 className="mb-3 text-2xl font-bold">
-              Ayúdanos a mejorar la próxima ronda de RetroPGF
+              Ayúdanos a mejorar la próxima ronda
             </h5>
             <p className="mb-6 text-gray-700 dark:text-gray-300">
             Tus comentarios anónimos nos ayudaran a mejorar el proceso RetroPGF de Optimism.

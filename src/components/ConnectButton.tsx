@@ -97,8 +97,9 @@ const ConnectedDetails = ({
 }) => {
   const { isLoading, isRegistered, isEligibleToVote, onSignup } = useMaci();
   const { ballot } = useBallot();
-  const ballotSize = (ballot?.votes ?? []).length;
 
+  const ballotSize = (ballot?.votes ?? []).length;
+console.log(isLoading, isRegistered, isEligibleToVote, onSignup)
   const { showBallot } = useLayoutOptions();
 
   const onError = useCallback(() => toast.error("Signup error"), []);
@@ -121,6 +122,7 @@ const ConnectedDetails = ({
         {isRegistered && showBallot && ballot?.published && (
           <Chip>Already submitted</Chip>
         )}
+
         {isRegistered && showBallot && !ballot?.published && (
           <Chip className="gap-2" as={Link} href={"/ballot"}>
             {isMobile ? <FaListCheck className="h-4 w-4" /> : `View Ballot`}
@@ -139,6 +141,7 @@ const ConnectedDetails = ({
     </div>
   );
 };
+
 
 const UserInfo = ({
   address,

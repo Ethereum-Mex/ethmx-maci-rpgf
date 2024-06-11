@@ -29,7 +29,7 @@ export const SortByDropdown = ({ value, onChange, options = [] }: Props) => {
           sideOffset={5}
         >
           <DropdownMenu.Label className="dark:gray-500 p-2 text-xs font-semibold uppercase text-gray-700">
-            Sort By
+            Ordenado Por
           </DropdownMenu.Label>
           <DropdownMenu.RadioGroup
             value={value}
