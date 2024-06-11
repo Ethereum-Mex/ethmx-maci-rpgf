@@ -22,7 +22,7 @@ Tu progreso se guarda localmente para que puedas volver a esta página y reanuda
 `}
       </Markdown>
       {state !== EAppState.APPLICATION ? (
-        <Alert variant="info" title="Application period has ended"></Alert>
+        <Alert variant="info" title="Ha terminado el periodo de registrar aplicaciones"></Alert>
       ) : (
         <ApplicationForm address={address} />
       )}

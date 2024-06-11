@@ -118,9 +118,6 @@ export const MaciProvider: React.FC<MaciProviderProps> = ({ children }) => {
         : new Date(),
     [pollData?.deployTime, pollData?.duration],
   );
-  
-
-  //const votingEndsAt = new Date("2024-07-12")
 
   const onSignup = useCallback(
     async (onError: () => void) => {

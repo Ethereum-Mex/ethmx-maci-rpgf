@@ -125,7 +125,7 @@ function ClearBallot() {
             // disabled={isPending}
             onClick={handleClearBallot}
           >
-            {isPending ? <Spinner /> : "Si. Estoy de acuerdo"}
+            Si. Estoy de acuerdo
           </Button>
         </div>
       </Dialog>

@@ -285,7 +285,7 @@ export function ApplicationForm({ address = "" }) {
         </FormSection>
 
         <FormSection
-          title="Fuentes de financiamientos"
+          title="Fuentes de financiamiento"
           description="¿De qué fuentes ha recibido financiación?"
         >
           <FieldArray
@@ -335,8 +335,7 @@ export function ApplicationForm({ address = "" }) {
 
         {error ? (
           <div className="mb-4 text-center text-gray-600 dark:text-gray-400">
-            Make sure you&apos;re not connected to a VPN since this can cause
-            problems with the RPC and your wallet.
+            Asegurate de no estar usando una VPN, ya que puede interferir con el servicio.
           </div>
         ) : null}
 
@@ -365,11 +364,10 @@ function CreateApplicationButton({
   const { isCorrectNetwork, correctNetwork } = useIsCorrectNetwork();
 
   const { address } = useAccount();
-
   return (
     <div className="flex items-center justify-between">
       <div>
-        {!session && <div>Debes conectar tu wallet para crear una aplicación</div>}
+        {!address && <div>Debes conectar tu wallet para crear una aplicación</div>}
         {!isCorrectNetwork && (
           <div className="flex items-center gap-2">
             You must be connected to {correctNetwork.name}
