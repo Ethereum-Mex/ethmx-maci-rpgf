@@ -25,7 +25,6 @@ export const contributionTypes = {
 
 export const fundingSourceTypes = {
   GOVERNANCE_FUND: "Fondo de Gobernanza",
-  PARTNER_FUND: "Fondo de Socios",
   REVENUE: "Ingresos",
   OTHER: "Otro",
 } as const;

@@ -74,7 +74,6 @@ export default function ProjectDetails({
               {
                 OTHER: "Otro",
                 GOVERNANCE_FUND: "Fondo de Gobernanza",
-                PARTNER_FUND: "Fondo de Socios",
                 REVENUE: "Ingresos",
               }[source.type] ?? source.type;
             return (
