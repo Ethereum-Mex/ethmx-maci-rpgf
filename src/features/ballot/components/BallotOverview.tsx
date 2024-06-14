@@ -96,7 +96,7 @@ function BallotOverview() {
           <BallotSection
             title={
               <div className="flex justify-between">
-                {config.tokenName} allocated:
+                {config.tokenName} asignados:
                 <div
                   className={clsx("text-gray-900 dark:text-gray-300", {
                     ["text-primary-500"]: sum > initialVoiceCredits || sum < initialVoiceCredits,
@@ -178,18 +178,18 @@ const SubmitBallotButton = ({ disabled = false }) => {
         "Confirm the transactions in your wallet to submit your  ballot.",
     },
     submitting: {
-      title: "Submit ballot",
+      title: "Enviar votación",
       instructions:
-        "Once you submit your ballot, you won’t be able to change it. If you are ready, go ahead and submit!",
+        "Una vez que envies tu votación, no podrá cambiarla. Si estás listo, ¡adelante!",
     },
     error: {
-      title: "Error submitting ballot",
+      title: "Error al enviar votación",
       instructions: (
         <Alert
           variant="warning"
           title={(submit.error as { message?: string })?.message}
         >
-          There was an error submitting the ballot.
+          Hubo un error al enviar tu votación
         </Alert>
       ),
     },

@@ -135,7 +135,7 @@ const ProjectAllocation = ({
       <div className="flex justify-between gap-2 pt-2 text-sm">
         <div className="flex gap-2">
           <span className="text-gray-600 dark:text-gray-400">
-            Total allocated:
+            Total asignados:
           </span>
           <span
             className={clsx("font-semibold", {

@@ -120,12 +120,12 @@ console.log(isLoading, isRegistered, isEligibleToVote, onSignup)
           />
         )}
         {isRegistered && showBallot && ballot?.published && (
-          <Chip>Already submitted</Chip>
+          <Chip>Votación enviada</Chip>
         )}
 
         {isRegistered && showBallot && !ballot?.published && (
           <Chip className="gap-2" as={Link} href={"/ballot"}>
-            {isMobile ? <FaListCheck className="h-4 w-4" /> : `View Ballot`}
+            {isMobile ? <FaListCheck className="h-4 w-4" /> : `Ver Votación`}
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-800 text-xs">
               {ballotSize}
             </div>
