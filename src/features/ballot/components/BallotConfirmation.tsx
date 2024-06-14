@@ -67,7 +67,7 @@ export const BallotConfirmation = ({ votes }: { votes: Vote[] }) => {
               Ayúdanos a mejorar la próxima ronda
             </h5>
             <p className="mb-6 text-gray-700 dark:text-gray-300">
-            Tus comentarios anónimos nos ayudaran a mejorar el proceso RetroPGF de Optimism.
+            Tus comentarios anónimos nos ayudaran a mejorar el proceso.
             </p>
             <Button
               variant="primary"
