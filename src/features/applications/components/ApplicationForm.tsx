@@ -402,7 +402,7 @@ function ImpactTags() {
   return (
     <div className="mb-4">
       <Label>
-      Categorías de impacto<span className="text-red-300">*</span>
+      Categoría de impacto<span className="text-red-300">* (Aplicaciones con múltiples categorías serán rechazadas)</span>
       </Label>
       <div className="flex flex-wrap gap-2">
         {Object.entries(impactCategories).map(([value, { label }]) => {
