@@ -1,9 +1,10 @@
-import { type ComponentPropsWithRef } from "react";
+import { useState, type ComponentPropsWithRef } from "react";
 import { NumericFormat } from "react-number-format";
 import { useFormContext, Controller } from "react-hook-form";
 
 import { Input, InputAddon, InputWrapper } from "~/components/ui/Form";
 import { config } from "~/config";
+import clsx from "clsx";
 
 export const AllocationInput = ({
   votingMaxProject,
@@ -40,10 +41,10 @@ export const AllocationInput = ({
             }
             disabled={props.disabled}
             defaultValue={props.defaultValue as string}
-            onChange={(v) =>
+            onChange={(v) => {
               // Parse decimal string to number to adhere to AllocationSchema
-              field.onChange(parseFloat(v.target.value.replace(/,/g, "")))
-            }
+              field.onChange(parseFloat(v.target.value.replace(/,/g, "")));
+            }}
             onBlur={onBlur}
             thousandSeparator=","
           />

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import { useCallback, type ReactNode } from "react";
 import { tv } from "tailwind-variants";
 import Link from "next/link";
 import { Trash } from "lucide-react";
@@ -69,13 +69,19 @@ export function AllocationFormWrapper({
 }: AllocationFormProps) {
   const form = useFormContext<{ votes: Vote[] }>();
   const { initialVoiceCredits, pollId } = useMaci();
-  const { addToBallot: onSave, removeFromBallot: onRemove } = useBallot();
+  const { ballot, sumBallot, addToBallot: onSave, removeFromBallot: onRemove } = useBallot();
 
   const { fields, remove } = useFieldArray({
     name: "votes",
     keyName: "key",
     control: form.control,
   });
+
+  const sum = sumBallot(ballot?.votes ?? []);
+
+  const handleOnBlur = useCallback(() => {
+    onSave(form.getValues().votes, pollId!);
+  }, [pollId, onSave]);
 
   return (
     <AllocationListWrapper>
@@ -99,8 +105,8 @@ export function AllocationFormWrapper({
                     name={`votes.${idx}.amount`}
                     disabled={disabled}
                     defaultValue={project.amount}
-                    votingMaxProject={initialVoiceCredits}
-                    onBlur={() => onSave?.(form.getValues().votes, pollId)}
+                    votingMaxProject={Math.sqrt(Math.min(initialVoiceCredits, initialVoiceCredits - sum))}
+                    onBlur={handleOnBlur}
                   />
                 </Td>
                 <Td>
