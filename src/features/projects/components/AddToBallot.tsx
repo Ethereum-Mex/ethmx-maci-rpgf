@@ -81,7 +81,7 @@ export const ProjectAddToBallot = ({ id, name }: Props) => {
             amount: z
               .number()
               .min(0)
-              .max(Math.min(initialVoiceCredits, initialVoiceCredits - sum))
+              .max(Math.sqrt(Math.min(initialVoiceCredits, initialVoiceCredits - sum)))
               .default(0),
           })}
           onSubmit={({ amount }) => {
@@ -117,10 +117,10 @@ const ProjectAllocation = ({
   const amount = formAmount
     ? parseFloat(String(formAmount).replace(/,/g, ""))
     : 0;
-  const total = amount + current;
+  const total = (amount ** 2) + current;
   const { initialVoiceCredits } = useMaci();
 
-  const exceededProjectTokens = amount > initialVoiceCredits;
+  const exceededProjectTokens = amount ** 2 > initialVoiceCredits;
   const exceededMaxTokens = total > initialVoiceCredits;
 
   const isError = exceededProjectTokens || exceededMaxTokens;
@@ -151,7 +151,7 @@ const ProjectAllocation = ({
               ["text-primary-500"]: exceededProjectTokens,
             })}
           >
-            {formatNumber(total - amount)}
+            {formatNumber(initialVoiceCredits - total)}
           </span>
           <span className="text-gray-600 dark:text-gray-400">/</span>
           <span className="text-gray-600 dark:text-gray-400">

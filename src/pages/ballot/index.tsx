@@ -14,6 +14,7 @@ import { useBallot } from "~/contexts/Ballot";
 import { formatNumber } from "~/utils/formatNumber";
 import { getAppState } from "~/utils/state";
 import { EAppState } from "~/utils/types";
+import { useMaci } from "~/contexts/Maci";
 
 export default function BallotPage() {
   const { address, isConnecting } = useAccount();
@@ -151,13 +152,14 @@ const EmptyBallot = () => (
 
 const TotalAllocation = () => {
   const { sumBallot } = useBallot();
+  const { initialVoiceCredits } = useMaci();
   const form = useFormContext<{ votes: Vote[] }>();
   const votes = form.watch("votes") ?? [];
   const sum = sumBallot(votes);
 
   return (
     <div>
-      {formatNumber(sum)} {config.tokenName}
+      {formatNumber(sum)} / {initialVoiceCredits} {config.tokenName}
     </div>
   );
 };

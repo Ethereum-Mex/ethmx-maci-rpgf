@@ -17,7 +17,7 @@ export const BallotProvider: React.FC<BallotProviderProps> = ({ children }) => {
 
   const sumBallot = (votes?: Vote[]) =>
     (votes ?? []).reduce(
-      (sum, x) => sum + (!isNaN(Number(x?.amount)) ? Number(x.amount) : 0),
+      (sum, x) => sum + (!isNaN(Number(x?.amount)) ? Number(x.amount) ** 2 : 0),
       0,
     );
 
