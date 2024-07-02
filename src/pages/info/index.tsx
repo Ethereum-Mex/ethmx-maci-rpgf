@@ -18,11 +18,15 @@ const steps = [
   },
   {
     label: "Conteo de Votos",
-    date: undefined,
+    date: config.voteEndsAt,
   },
   {
-    label: "Distribución",
-    date: undefined,
+    label: "Publicación de Resultados",
+    date: config.resultsAt,
+  },
+  {
+    label: "Distribución de Fondos",
+    date: config.distributionAt,
   },
 ];
 
