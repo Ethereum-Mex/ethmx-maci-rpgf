@@ -11,7 +11,7 @@ export function VotersList() {
   if (!isLoading && !data?.length)
     return (
       <EmptyState title="No voters">
-        Add voters to allow them to vote
+        Agrega votantes para permitirles votar
       </EmptyState>
     );
   return (

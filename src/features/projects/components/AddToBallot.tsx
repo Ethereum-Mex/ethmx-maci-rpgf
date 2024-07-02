@@ -39,20 +39,20 @@ export const ProjectAddToBallot = ({ id, name }: Props) => {
     <div>
       {numVotes > config.voteLimit && (
         <Alert variant="warning">
-          You have exceeded your vote limit. You can only vote for{" "}
-          {config.voteLimit} options.
+          Has excedido tu límite de votos. Sólo puedes votar por{" "}
+          {config.voteLimit} opciones.
         </Alert>
       )}
 
       {!isEligibleToVote || !isRegistered ? null : ballot?.published ? (
-        <Button disabled>Ballot published</Button>
+        <Button disabled>Votación Publicada</Button>
       ) : inBallot ? (
         <IconButton
           onClick={() => setOpen(true)}
           variant="primary"
           icon={Check}
         >
-          {formatNumber(inBallot.amount)} allocated
+          {formatNumber(inBallot.amount)} asignados
         </IconButton>
       ) : (
         <Button
@@ -61,7 +61,7 @@ export const ProjectAddToBallot = ({ id, name }: Props) => {
           variant="primary"
           className="w-full md:w-auto"
         >
-          Add to ballot
+          Agregar a mi votación
         </Button>
       )}
       <Dialog
@@ -71,9 +71,7 @@ export const ProjectAddToBallot = ({ id, name }: Props) => {
         title={`Vote for ${name}`}
       >
         <p className="pb-4 leading-relaxed">
-          How much {config.tokenName} should this Project receive to fill the
-          gap between the impact they generated for Optimism and the profit they
-          received for generating this impact
+          ¿Cuántos {config.tokenName} debería recibir este proyecto?
         </p>
         <Form
           defaultValues={{ amount: inBallot?.amount }}
@@ -175,7 +173,7 @@ const ProjectAllocation = ({
             className="w-full"
             onClick={onRemove}
           >
-            Remove from ballot
+            Quitar de la Votación
           </Button>
         ) : null}
       </div>

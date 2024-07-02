@@ -16,8 +16,7 @@ export default function VotersPage() {
       </div>
       {config.skipApprovedVoterCheck ? (
         <Alert variant="warning" className="mb-4 ">
-          Configuration has disabled voter approval check. Anyone is an eligible
-          voter.
+          La configuración ha deshabilitado la verificación de aprobación de los votantes. Cualquiera es un votante elegible.
         </Alert>
       ) : null}
       <VotersList />
