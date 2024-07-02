@@ -17,7 +17,7 @@ export function useApproveVoters(options: {
 
   return useMutation({
     mutationFn: async (voters: string[]) => {
-      if (!signer) throw new Error("Connect wallet first");
+      if (!signer) throw new Error("Conecta tu Wallet");
       const attestations = await Promise.all(
         voters.map((recipient) =>
           createAttestation(

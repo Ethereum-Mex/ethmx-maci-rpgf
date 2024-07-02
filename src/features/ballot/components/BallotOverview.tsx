@@ -78,7 +78,7 @@ function BallotOverview() {
 
   return (
     <div className="space-y-6 bg-gray-50 rounded-xl py-6 px-3">
-      <BallotHeader>Voting Round: {config.roundId}</BallotHeader>
+      <BallotHeader>Ronda de Votación: {config.roundId}</BallotHeader>
       <BallotSection title="La votación termina en">
         <VotingEndsIn />
       </BallotSection>
@@ -173,9 +173,9 @@ const SubmitBallotButton = ({ disabled = false }) => {
 
   const messages = {
     signing: {
-      title: "Sign ballot",
+      title: "Firmar votación",
       instructions:
-        "Confirm the transactions in your wallet to submit your  ballot.",
+        "Confirma la transacción en tu wallet para enviar tu votación",
     },
     submitting: {
       title: "Enviar votación",
