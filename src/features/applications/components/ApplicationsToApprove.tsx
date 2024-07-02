@@ -146,7 +146,7 @@ Seleccione las solicitudes que desea aprobar. Debes ser administrador para aprob
       ) : !applications.data?.length ? (
         <EmptyState title="No applications">
           <Button variant="primary" as={Link} href={`/applications/new`}>
-            Go to create application
+            Ir a crear aplicación
           </Button>
         </EmptyState>
       ) : null}
@@ -200,7 +200,7 @@ function ApproveButton({ isLoading = false }) {
       type="submit"
     >
       {!isCorrectNetwork
-        ? `Connect to ${correctNetwork.name}`
+        ? `Conectar a ${correctNetwork.name}`
         : isAdmin
           ? `Aprobar ${selectedCount} aplicaciones`
           : "Debes ser admin"}

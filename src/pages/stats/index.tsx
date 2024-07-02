@@ -36,9 +36,9 @@ export default function StatsPage() {
         <Stats />
       ) : (
         <Alert variant="info" className="mx-auto max-w-sm text-center">
-          The results will be revealed in{" "}
+          Los resultados serán revelados en {" "}
           <div className="text-3xl">{duration > 0 ? duration : 0}</div>
-          days
+          días
         </Alert>
       )}
     </Layout>
@@ -66,14 +66,14 @@ function Stats() {
   }, [projects, projectsResults]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   if (!pollData && !isConnected) {
     return (
       <Alert variant="info" className="mx-auto max-w-sm text-center">
         <h3 className="text-lg font-bold">
-          Connect your wallet to see results
+          Conecta tu wallet para ver los resultados
         </h3>
 
         <div className="mt-4">
@@ -84,7 +84,7 @@ function Stats() {
   }
 
   if (!pollData) {
-    return <div>Something went wrong. Try later.</div>;
+    return <div>Algo salió mal. Intenta de nuevo.</div>;
   }
 
   return (

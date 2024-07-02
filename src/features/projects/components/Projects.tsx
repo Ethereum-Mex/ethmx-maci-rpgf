@@ -27,8 +27,9 @@ export function Projects() {
     <div>
       {select.count > config.voteLimit && (
         <Alert variant="warning">
-          You have exceeded your vote limit. You can only vote for{" "}
-          {config.voteLimit} options.
+          Has excedido tu límite de votos. Solo puedes votar por {" "}
+          
+          {config.voteLimit} opciones.
         </Alert>
       )}
 
@@ -46,7 +47,7 @@ export function Projects() {
           disabled={!select.count || select.count > config.voteLimit}
           className="w-full lg:w-72"
         >
-          Add {select.count} projects to ballot
+          Agregar {select.count} proyectos a la votación
         </Button>
         <Button size="icon" onClick={select.reset}>
           <XIcon />

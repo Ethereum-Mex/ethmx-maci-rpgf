@@ -16,11 +16,11 @@ export default function VotersPage() {
         </Alert>
       ) : approved.data ? (
         <Alert title="You have been approved" variant="success">
-          The connected wallet has been attested as an approved voter.
+          La wallet conectada ha sido certificada como votante aprobado.
         </Alert>
       ) : (
         <Alert title="You have not been approved yet" variant="warning">
-          The connected wallet has not been attested as an approved voter yet.
+          La wallet conectada aún no ha sido certificada como votante aprobado.
         </Alert>
       )}
     </Layout>

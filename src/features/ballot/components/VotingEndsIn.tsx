@@ -21,11 +21,11 @@ export const VotingEndsIn = () => {
   const [days, hours, minutes, seconds] = useVotingTimeLeft(votingEndsAt);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   if (seconds < 0) {
-    return <div>Voting has ended</div>;
+    return <div>Votación ha finalizado</div>;
   }
 
   return (
