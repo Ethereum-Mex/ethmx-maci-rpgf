@@ -44,7 +44,7 @@ export function ProjectItem({
         </p>
       </div>
       <Skeleton isLoading={isLoading} className="w-[100px]">
-        <ImpactCategories tags={metadata.data?.impactCategory} />
+        <ImpactCategories tag={metadata.data?.impactCategory} />
       </Skeleton>
       </div>
     </article>

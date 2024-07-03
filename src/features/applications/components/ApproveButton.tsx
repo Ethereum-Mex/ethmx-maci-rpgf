@@ -7,7 +7,7 @@ import { useApprovedApplications } from "../hooks/useApprovedApplications";
 import { Badge } from "~/components/ui/Badge";
 
 function ApproveButton({
-  children = "Approve project",
+  children = "Aprobar Proyecto",
   projectIds = [],
 }: PropsWithChildren<{ projectIds: string[] }>) {
   const isAdmin = useIsAdmin();

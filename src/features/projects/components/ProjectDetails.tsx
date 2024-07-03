@@ -8,7 +8,7 @@ import { suffixNumber } from "~/utils/suffixNumber";
 import { useProjectMetadata } from "../hooks/useProjects";
 import { type ReactNode } from "react";
 import { type Attestation } from "~/utils/fetchAttestations";
-
+import { ImpactCategories } from "./ImpactCategories";
 export default function ProjectDetails({
   attestation,
   action,
@@ -59,12 +59,19 @@ export default function ProjectDetails({
           Descripción del Impacto
         </Heading>
 
+        <Heading as="h3" size="2xl">
+          Categoría de impacto
+        </Heading>
+
+         <ImpactCategories tag={metadata.data?.impactCategory} />
+
         <ProjectContributions
           isLoading={metadata.isLoading}
           project={metadata.data}
         />
 
         <ProjectImpact isLoading={metadata.isLoading} project={metadata.data} />
+
         <Heading as="h3" size="2xl">
           Grants y Financiamientos Pasados
         </Heading>

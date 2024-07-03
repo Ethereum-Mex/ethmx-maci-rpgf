@@ -396,28 +396,25 @@ function ImpactTags() {
     control,
   });
 
-  const selected = watch("application.impactCategory") ?? [];
+  const selected = watch("application.impactCategory") ?? null;
 
   const error = formState.errors.application?.impactCategory;
   return (
     <div className="mb-4">
       <Label>
-      Categoría de impacto<span className="text-red-300">* (Selecciona solo una categoría, de lo contrario tu aplicación será rechazada)</span>
+      Categoría de impacto*
       </Label>
       <div className="flex flex-wrap gap-2">
         {Object.entries(impactCategories).map(([value, { label }]) => {
-          const isSelected = selected.includes(value);
+          const isSelected = selected === value;
           return (
             <Tag
               size="lg"
               selected={isSelected}
               key={value}
               onClick={() => {
-                const currentlySelected = isSelected
-                  ? selected.filter((s) => s !== value)
-                  : selected.concat(value);
-
-                field.onChange(currentlySelected);
+                const newSelection = isSelected ? null : value;
+                field.onChange(newSelection);
               }}
             >
               {label}

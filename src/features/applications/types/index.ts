@@ -43,7 +43,8 @@ export const ApplicationSchema = z.object({
   payoutAddress: EthAddressSchema,
   contributionDescription: z.string().min(140).max(500),
   impactDescription: z.string().min(140).max(500),
-  impactCategory: z.array(z.string()).min(1),
+  impactCategory: z.string().min(1),
+  //impactCategory: z.array(z.string()).min(1),
   impactAmount: z.number(),
   impactClassification: z.nativeEnum(reverseKeys(impactTypes)),
   contributionLinks: z

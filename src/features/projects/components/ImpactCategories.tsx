@@ -1,14 +1,14 @@
 import { Tag } from "~/components/ui/Tag";
 import { impactCategories } from "~/config";
 
-export const ImpactCategories = ({ tags }: { tags?: string[] }) => (
+export const ImpactCategories = ({ tag }: { tag?: string }) => (
   <div className="no-scrollbar">
     <div className="flex gap-1 overflow-x-auto">
-      {tags?.map((key) => (
-        <Tag key={key} size="sm">
-          {impactCategories[key as keyof typeof impactCategories]?.label ?? key}
+      {tag && (
+        <Tag key={tag} size="sm">
+          {impactCategories[tag as keyof typeof impactCategories]?.label ?? tag}
         </Tag>
-      ))}
+       )}
     </div>
   </div>
 );
