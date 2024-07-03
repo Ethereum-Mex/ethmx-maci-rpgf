@@ -68,7 +68,7 @@ export const ConnectButton = () => {
                 chain.unsupported ??
                 ![Number(config.network.id)].includes(chain.id)
               ) {
-                return <Chip onClick={openChainModal}>Wrong network</Chip>;
+                return <Chip onClick={openChainModal}>Red equivocada</Chip>;
               }
 
               return (
@@ -111,7 +111,7 @@ console.log(isLoading, isRegistered, isEligibleToVote, onSignup)
   return (
     <div>
       <div className="flex gap-2">
-        {!isEligibleToVote && <Chip>You are not allowed to vote</Chip>}
+        {!isEligibleToVote && <Chip>No tienes permitido votar</Chip>}
 
         {isEligibleToVote && !isRegistered && (
           <SignupButton
