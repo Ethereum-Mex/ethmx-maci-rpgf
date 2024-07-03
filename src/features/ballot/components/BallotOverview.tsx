@@ -222,7 +222,7 @@ const SubmitBallotButton = ({ disabled = false }) => {
             className="flex-1"
             onClick={() => setOpen(false)}
           >
-            Back
+            Regresar
           </Button>
           <Button
             className="flex-1"
