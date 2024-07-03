@@ -31,11 +31,11 @@ export function useApproveApplication(opts?: { onSuccess?: () => void }) {
       );
     },
     onSuccess: () => {
-      toast.success("Application approved successfully!");
+      toast.success("Aplicación aprobada exitosamente!");
       opts?.onSuccess?.();
     },
     onError: (err: { reason?: string; data?: { message: string } }) =>
-      toast.error("Application approve error", {
+      toast.error("Error de aprobación de la aplicación", {
         description: err.reason ?? err.data?.message,
       }),
   });
