@@ -127,7 +127,7 @@ function BallotOverview() {
           Ver votación enviada
         </Button>
       ) : canSubmit ? (
-        <SubmitBallotButton disabled={sum > initialVoiceCredits || sum < initialVoiceCredits} />
+        <SubmitBallotButton disabled={sum > initialVoiceCredits} />
       ) : viewBallot ? (
         <Button className="w-full" variant="primary" as={Link} href={`/ballot`}>
           Ver mi votación

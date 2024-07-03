@@ -61,6 +61,9 @@ function BallotAllocationForm() {
     <div>
       <h1 className="mb-2 text-2xl font-bold">Revisar tu Votación</h1>
       <p className="mb-6">
+        Considera que el mecanismo de votación de esta ronda es <b>Quadratic Founding</b>
+      </p>
+      <p className="mb-6">
         Una vez que haya revisado tu asignación de votos, puede enviarlos.
       </p>
       <div className="mb-2 justify-between sm:flex">
