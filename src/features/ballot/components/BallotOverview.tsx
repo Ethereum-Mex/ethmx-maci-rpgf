@@ -46,11 +46,13 @@ function BallotOverview() {
 
   if (appState === EAppState.RESULTS)
     return (
-      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-8">
         <BallotHeader>¡Resultados publicados!</BallotHeader>
+        {/** 
         <Button as={Link} href={"/projects/results"}>
           Ir a los resultados
         </Button>
+        */}
       </div>
     );
 
