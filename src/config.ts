@@ -2,9 +2,9 @@ import * as wagmiChains from "wagmi/chains";
 
 export const metadata = {
   title: "Ethereum México PGF",
-  description: "Open-source Retro Public Goods Funding platform",
-  url: "https://easy-retro-pgf.vercel.app",
-  image: "/api/og",
+  description: "Open-source Retro Public Goods Funding",
+  url: "https://pgf.ethmexico.org/",
+  image: "/images/so-banner-preview.png",
 };
 
 export const config = {
