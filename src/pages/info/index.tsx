@@ -46,7 +46,7 @@ export default function InfoPage() {
           <div
             key={i}
             className={cn("border-b border-l p-4 transition-opacity md:w-1/5", {
-              ["opacity-50"]: currentStepIndex <= i,
+              ["opacity-80"]: currentStepIndex <= i,
             })}
           >
             <h3 className="font-semibold">{step.label}</h3>
@@ -54,6 +54,9 @@ export default function InfoPage() {
           </div>
         ))}
       </div>
+      <div className='flex py-5 relative md:flex md:justify-end'>
+        <h4 className=''>America/Mexico City (UTC-6)</h4>
+       </div>
     </Layout>
   );
 }
