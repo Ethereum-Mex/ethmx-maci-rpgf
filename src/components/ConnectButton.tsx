@@ -59,7 +59,7 @@ export const ConnectButton = () => {
                     onClick={openConnectModal}
                     variant="primary"
                   >
-                    {isMobile ? "Conectar" : "Conectar wallet"}
+                    {isMobile ? "Conectar" : "Conectar Wallet"}
                   </Button>
                 );
               }

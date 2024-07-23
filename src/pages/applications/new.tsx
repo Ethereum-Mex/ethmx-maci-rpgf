@@ -16,7 +16,7 @@ export default function NewProjectPage() {
       <Markdown className={"mb-8"}>
         {`
 ### Nueva Aplicación
-Rellena este formulario para crear una solicitud para tu proyecto. Posteriormente será revisada por nuestros administradores.
+Llena este formulario para crear una solicitud para tu proyecto. Posteriormente será revisada por nuestros administradores.
 
 Tu progreso se guarda localmente para que puedas volver a esta página y reanudar tu solicitud.
 `}
