@@ -12,7 +12,7 @@ const Home = () => {
           <img src="/images/animalsR.png" className='absolute right-0 z-0 top-20 opacity-70 w-1/2 md:w-auto lg:opacity-100 '/>
           <img src='/images/ETHPGF-icon.png' className='z-10 p-4 w-full md:w-3/5 2xl:w-auto'/>
           <h1 className='text-center mt-8 z-10'>RONDA DE FINANCIAMIENTO PARA COMUNIDADES Y PROYECTOS MEXICANOS</h1>
-          <p className='font-bold z-10 text-center'>DEL 29 DE MAYO AL 12 DE JUNIO</p>
+          <p className='font-bold z-10 text-center'>DEL 1 AL 30 DE AGOSTO 2024</p>
           <Link  href={"/applications/new"} className='text-3xl bg-PGFOrangeL p-4 m-8 rounded-full text-white z-10 items-center font-montserrat font-medium'>
             Aplica aquí
           </Link>
@@ -31,11 +31,9 @@ const Home = () => {
                 <p>Ser una comunidad o proyecto mexicano y tener pruebas on-chain, como: POAPs, Unlock Protocol, NFTs o EAS.</p>
               </div>
               <div>
-              <h2 className='font-semibold'>¿Qué tecnologías se utilizaran?</h2>
-              <p>MACI (Minimal Anti-Collusion Infrastructure)
-              EasyRetroPGF
-              Hypercerts
-              EAS</p>                
+              <h2 className='font-semibold'>¿Qué tecnologías se utilizarán?</h2>
+              <p>MACI, EasyRetroPGF, Hypercerts, EAS
+              </p>                
               </div>
               <div>
               <h2 className='font-semibold items-center'>¿Tienes alguna otra duda?</h2>
@@ -59,8 +57,13 @@ const Home = () => {
               <div className="p-4 rounded-3xl text-white flex items-center justify-center">
                 <img src="/images/gitcoin-logo.png" alt="" />
               </div>
+               {/*
               <div className="p-4 rounded-3xl text-white flex items-center justify-center">
                 <img src="/images/eas-logo.png" alt="" />
+              </div>
+              */}
+              <div className="p-4 rounded-3xl text-white flex items-center justify-center">
+                <img src="/images/Public-Nouns.png" alt="" />
               </div>
             </div>
           </div>
