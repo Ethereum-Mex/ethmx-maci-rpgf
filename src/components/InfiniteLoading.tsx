@@ -45,7 +45,7 @@ export function InfiniteLoading<T>({
   return (
     <div>
       {!isLoading && !items?.length ? (
-        <EmptyState title="No results found" />
+        <EmptyState title="No se han encontrado resultados" />
       ) : null}
       <div className={`mb-16 grid ${columnMap[columns]} gap-4`}>
         {items.map((item) => renderItem(item, { isLoading }))}

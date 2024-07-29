@@ -10,7 +10,7 @@ export function VotersList() {
   const { data, isLoading } = useVoters();
   if (!isLoading && !data?.length)
     return (
-      <EmptyState title="No voters">
+      <EmptyState title="No hay Votantes">
         Agrega votantes para permitirles votar
       </EmptyState>
     );
