@@ -86,7 +86,7 @@ const MobileMenu = ({
 }) => (
   <div
     className={clsx(
-      "fixed left-0 top-16 z-10 h-full w-full bg-white transition-transform duration-150 dark:bg-gray-900",
+      "fixed left-0 top-16 z-10 h-full w-full bg-PGFBeige transition-transform duration-150 dark:bg-gray-900",
       {
         ["translate-x-full"]: !isOpen,
       },

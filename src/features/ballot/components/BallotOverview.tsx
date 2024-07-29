@@ -43,6 +43,7 @@ function BallotOverview() {
   if (appState === EAppState.LOADING) {
     return <Spinner className="h-6 w-6" />;
   }
+  console.log(appState)
 
   if (appState === EAppState.RESULTS)
     return (

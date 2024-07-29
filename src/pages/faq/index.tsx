@@ -1,11 +1,24 @@
 // pages/home.js o pages/index.js
 import React from 'react';
-import { Layout } from '../../layouts/DefaultLayout';
+import { Layout, LayoutWithBallot } from '../../layouts/DefaultLayout';
 import Link from "next/link";
 import { Markdown } from "~/components/ui/Markdown"; 
 
 const faq = () => {
   return (
+    <>
+    <Layout>
+        <iframe 
+            src="https://www.notioniframe.com/notion/1bhw3lx3vykm"
+            className="absolute left-0 -top-11 w-[100%] h-[94.5%]"
+            title="Notion FAQ Iframe"
+        >
+        </iframe>
+    </Layout>
+    </>
+
+    /*
+
     <>
       <Layout>
         <div className='w-full flex flex-col gap-12'>
@@ -18,7 +31,7 @@ const faq = () => {
                         {/*
                         <p>¿Cómo obtener la data de pruebas on chain?</p>
                         <p>Timeline de la ronda</p>
-                        */}
+                        *}
                         <a href="#aplicar" className='hover:underline'>¿Cómo aplicar?</a>
                         <a href="#votar" className='hover:underline'>¿Cómo votar?</a>
                         <a href="#evaluar" className='hover:underline'>¿Cómo se evaluará la ronda?</a>
@@ -58,7 +71,7 @@ const faq = () => {
                 <div className='flex flex-col gap-8'>
                     <h2 className='font-bold text-4xl font-ojuju'>Timeline de la ronda</h2>
                 </div>
-                */}
+                *}
 
                 <div className='flex flex-col gap-8 py-2' id='aplicar'>
                     <Markdown>{`### ¿Cómo Aplicar?`}</Markdown>
@@ -72,7 +85,7 @@ const faq = () => {
                     <img src="/images/apply-example-1.png" alt="search example" style={{width: "624px"}}/>
                     
                     <img src="/images/apply-example-2.png" alt="search example" style={{width: "624px"}}/>
-                    */}
+                    *}
                     <li className='flex flex-col pl-4'>
                         <p>Consulta <i><a className='hover:underline underline' href="https://docs.google.com/document/d/1WhKP4jPSvNQctzjkv-BZ4mJ8dNALEPi-4a9sd5p6V_M/edit?usp=sharing">aquí</a></i> las preguntas de la aplicación</p>
                         <p>Consulta <i><a className='hover:underline underline' href="https://www.youtube.com/watch?v=DTp4V28lYlI&t=7s">aquí</a></i> la sesión del paso a paso de ¿Cómo aplicar a Ethereum México PGF? 🚀</p>
@@ -80,7 +93,7 @@ const faq = () => {
                     
                 </div>
                 
-                {/* ------------------- Pendiente como votar-------------------- */}
+                {/* ------------------- Pendiente como votar-------------------- *}
                 <div className='flex flex-col gap-8'  id='votar'>
                     <Markdown>{`### ¿Cómo Votar?`}</Markdown>
                     <p>Consulta <i><a className='hover:underline underline' href="https://www.loom.com/share/04313481ce184d6d98a54c91deff40c3?sid=b9a2fbc0-2a56-4e8a-a84a-200c8158b363">aquí</a></i> la sesión del paso a paso de  ¿Cómo votar? </p>
@@ -208,22 +221,15 @@ const faq = () => {
                     <p>Para la etapa de selección final, evaluaremos cada uno de los proyectos finalistas según la siguiente rúbrica. Esto nos permitirá ser imparciales y considerar diversos aspectos que pueden o no ser abordados por los aplicantes.</p>
                 </div>
 
-
-
-
-
-
-
-
-Etapa 2: Selección final
-Para la etapa de selección final, evaluaremos cada uno de los proyectos finalistas según la siguiente rúbrica. Esto nos permitirá ser imparciales y considerar diversos aspectos que pueden o no ser abordados por los aplicantes.
-
-
+            Etapa 2: Selección final
+            Para la etapa de selección final, evaluaremos cada uno de los proyectos finalistas según la siguiente rúbrica. Esto nos permitirá ser imparciales y considerar diversos aspectos que pueden o no ser abordados por los aplicantes.
 
             </div>
         </div>
       </Layout>
+    
     </>
+    */
   );
 };
 

@@ -144,7 +144,7 @@ Seleccione las solicitudes que desea aprobar. Debes ser administrador para aprob
           <Spinner />
         </div>
       ) : !applications.data?.length ? (
-        <EmptyState title="No applications">
+        <EmptyState title="No hay Aplicaciones">
           <Button variant="primary" as={Link} href={`/applications/new`}>
             Ir a crear aplicación
           </Button>
