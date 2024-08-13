@@ -22,6 +22,7 @@ import type { Attestation } from "~/utils/fetchAttestations";
 import { config } from "~/config";
 import { api } from "~/utils/api";
 import { useEthersSigner } from "~/hooks/useEthersSigner";
+import { getVoiceCredits } from "~/utils/getVoiceCredits";
 import type { IVoteArgs, MaciContextType, MaciProviderProps } from "./types";
 
 export const MaciContext = createContext<MaciContextType | undefined>(
@@ -128,6 +129,9 @@ export const MaciProvider: React.FC<MaciProviderProps> = ({ children }) => {
         if (index) {
           setIsRegistered(true);
           setStateIndex(index);
+
+          const voiceCredits = await getVoiceCredits(signer);
+          setInitialVoiceCredits(Number(voiceCredits));
         }
       } catch (e) {
         onError();
