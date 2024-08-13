@@ -21,10 +21,12 @@ import { EAppState } from "~/utils/types";
 import dynamic from "next/dynamic";
 import { useMaci } from "~/contexts/Maci";
 import { useBallot } from "~/contexts/Ballot";
+import { useIsCorrectNetwork } from "~/hooks/useIsCorrectNetwork";
 
 function BallotOverview() {
   const router = useRouter();
 
+  const { isCorrectNetwork, correctNetwork } = useIsCorrectNetwork();
   const { isRegistered, isEligibleToVote, initialVoiceCredits } = useMaci();
   const { sumBallot, ballot } = useBallot();
 
@@ -43,7 +45,18 @@ function BallotOverview() {
   if (appState === EAppState.LOADING) {
     return <Spinner className="h-6 w-6" />;
   }
-  console.log(appState)
+
+  console.log(">>STATE");
+  console.log(appState);
+
+  if(address === undefined || !isCorrectNetwork )
+    return (
+      <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
+        <BallotHeader>Conectar Wallet</BallotHeader>
+        <BallotSection title="Favor de conectar ó registrar su wallet" ></BallotSection>
+      </div>
+    );
+
 
   if (appState === EAppState.RESULTS)
     return (
