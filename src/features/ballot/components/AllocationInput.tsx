@@ -34,10 +34,15 @@ export const AllocationInput = ({
             {...field}
             autoComplete="off"
             className="pr-16"
+            // Modificar la restricción de isAllowed para permitir valores aunque se pasen del max
+            /*
             isAllowed={({ floatValue }) =>
               votingMaxProject !== undefined
                 ? (floatValue ?? 0) <= votingMaxProject
                 : true
+            }*/
+            isAllowed={({ value }) =>
+               value.length <= 3 // Restringe a un máximo de 3 cifras
             }
             disabled={props.disabled}
             defaultValue={props.defaultValue as string}

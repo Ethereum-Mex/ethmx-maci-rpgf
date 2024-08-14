@@ -59,17 +59,21 @@ function BallotAllocationForm() {
 
   return (
     <div>
-      <h1 className="mb-2 text-2xl font-bold">Revisar tu Votación</h1>
+      <h1 className="mb-2 text-2xl font-bold">Revisa tu Votación</h1>
+      <br />
       <p className="mb-6">
-        Considera que el mecanismo de votación de esta ronda es <b>Quadratic Founding</b>
+        Ten en cuenta que el mecanismo de votación en esta ronda es <b>Quadratic Voting.</b> 
       </p>
       <p className="mb-6">
-        Una vez que haya revisado tu asignación de votos, puede enviarlos.
+        Esto significa que los votos que asignes a cada proyecto se multiplicarán por sí mismos.
+      </p>
+      <p className="mb-6">
+      Por ejemplo, si asignas <b>2 votos</b>, estos se convertirán en <b>4 votos</b> para ese proyecto. Si asignas 3 votos, se convertirán en 9 votos, y así sucesivamente.
       </p>
       <div className="mb-2 justify-between sm:flex">
         {ballot?.votes?.length ? <ClearBallot /> : null}
       </div>
-      <div className="relative rounded-2xl border border-gray-300 dark:border-gray-800">
+      <div className="relative rounded-2xl border border-gray-300 dark:border-gray-800 p-2">
         <div className="p-8">
           <div className="relative flex max-h-[500px] min-h-[360px] flex-col overflow-auto">
             {ballot?.votes?.length ? (
@@ -88,6 +92,7 @@ function BallotAllocationForm() {
             <TotalAllocation />
           </div>
         </div>
+        <TotalMessage/>
       </div>
 
     </div>
@@ -161,8 +166,49 @@ const TotalAllocation = () => {
   const sum = sumBallot(votes);
 
   return (
+    /* Si la suma de votos > máximo de votos
     <div>
       {formatNumber(sum)} / {initialVoiceCredits} {config.tokenName}
     </div>
+    */
+    <div>
+      <span
+        style={{
+          color: sum > initialVoiceCredits ? 'red' : 'inherit'
+        }}
+      >
+        {sum}
+      </span>
+      {' / '}
+      {initialVoiceCredits} {config.tokenName}
+    </div>
+  
   );
 };
+
+//Agregar mensaje guía para saber si faltan o sobran votos
+const TotalMessage = () => {
+  const { sumBallot } = useBallot();
+  const { initialVoiceCredits } = useMaci();
+  const form = useFormContext<{ votes: Vote[] }>();
+  const votes = form.watch("votes") ?? [];
+  const sum = sumBallot(votes);
+
+  return(
+    <div>
+      {sum < initialVoiceCredits && (
+        <>
+          <p className="text-right">Aún tienes <b>{Math.round(initialVoiceCredits - sum)}</b> votos para asignar</p>
+        </>
+      )}
+
+      {sum == initialVoiceCredits && (
+        <p className="text-right ">Ya asignaste todos tus votos</p>
+    )}
+
+      {sum > initialVoiceCredits && (
+        <p className="text-right ">Has superado el límite de votos para asignar</p>
+    )}
+    </div>
+  )
+ };

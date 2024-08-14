@@ -68,7 +68,7 @@ export const ProjectAddToBallot = ({ id, name }: Props) => {
         size="sm"
         isOpen={isOpen}
         onOpenChange={setOpen}
-        title={`Vote for ${name}`}
+        title={`Vota por ${name}`}
       >
         <p className="pb-4 leading-relaxed">
           ¿Cuántos {config.tokenName} debería recibir este proyecto?
@@ -164,7 +164,7 @@ const ProjectAllocation = ({
           className="w-full"
           disabled={isError}
         >
-          {inBallot ? "Update" : "Add"} votes
+          {inBallot ? "Actualizar" : "Agregar"} votos
         </Button>
         {inBallot ? (
           <Button
