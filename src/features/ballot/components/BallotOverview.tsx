@@ -106,7 +106,7 @@ function BallotOverview() {
                     ["text-red-500"]: sum > initialVoiceCredits,
                   })}
                 >
-                  {sum} {config.tokenName}
+                  {formatNumber(sum)} {config.tokenName}
                 </div>
               </div>
             }
