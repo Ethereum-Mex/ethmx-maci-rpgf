@@ -52,8 +52,7 @@ function BallotOverview() {
   if(address === undefined || !isCorrectNetwork )
     return (
       <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-6">
-        <BallotHeader>Conectar Wallet</BallotHeader>
-        <BallotSection title="Favor de conectar ó registrar su wallet" ></BallotSection>
+        <BallotSection title="Conecta tu wallet para continuar" ></BallotSection>
       </div>
     );
 
