@@ -102,10 +102,11 @@ function BallotOverview() {
                 {config.tokenName} asignados:
                 <div
                   className={clsx("text-gray-900 dark:text-gray-300", {
-                    ["text-primary-500"]: sum > initialVoiceCredits || sum < initialVoiceCredits,
+                    ["text-gray-500"]: sum > initialVoiceCredits || sum < initialVoiceCredits,
+                    ["text-red-500"]: sum > initialVoiceCredits,
                   })}
                 >
-                  {formatNumber(sum)} {config.tokenName}
+                  {sum} {config.tokenName}
                 </div>
               </div>
             }
