@@ -177,7 +177,7 @@ const TotalAllocation = () => {
           color: sum > initialVoiceCredits ? 'red' : 'inherit'
         }}
       >
-        {sum}
+        {formatNumber(sum)}
       </span>
       {' / '}
       {initialVoiceCredits} {config.tokenName}
