@@ -27,18 +27,18 @@ export const BallotConfirmation = ({ votes }: { votes: Vote[] }) => {
                 Tu voto ha sido recibido 🥳
               </h3>
               <p className="mb-10 text-gray-700 dark:text-gray-300">
-              Gracias por participar ¡Ayúdanos a mejorar el proceso brindándonos comentarios sobre tu experiencia en esta ronda!
+              Gracias por participar ¿Te gustó este experimento? ¡Apóyanos para que podamos seguir organizando más!
               </p>
               <Button
                 variant="primary"
                 as={Link}
                 target="_blank"
-                href={feedbackUrl}
+                href="https://explorer.gitcoin.co/#/round/42161/385/75"
               >
-                Comparte tu Feedback
+                Contribuye al proyecto aquí
               </Button>
             </div>
-            <div className="h-[400px] max-h-[30vw] w-[400px] max-w-[30vw] flex-shrink-0 rounded-[40px]" />
+            <div className="h-[300px] max-h-[30vw] w-[400px] max-w-[30vw] flex-shrink-0 rounded-[40px]" />  
           </div>
         </Card>
 
