@@ -27,12 +27,12 @@ export function ApplicationItem({
   id,
   recipient,
   name,
-  metadataPtr1,
+  metadataPtr,
   time,
   isApproved,
   isLoading,
 }: Attestation & { isApproved?: boolean; isLoading?: boolean }) {
-  const metadata = useMetadata<Application>(metadataPtr1);
+  const metadata = useMetadata<Application>(metadataPtr);
 
   const form = useFormContext();
 
@@ -60,7 +60,7 @@ export function ApplicationItem({
               <div>{fundingSources.length} Fuentes de Financimiento</div>
               <div>{impactMetrics.length} Métricas de Impacto</div>
             </div>
-            <div className="line-clamp-2 text-sm dark:text-gray-300">{bio}</div>
+            {/*<div className="line-clamp-2 text-sm dark:text-gray-300">{bio}</div>*/}
           </div>
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-700 dark:text-gray-400">
