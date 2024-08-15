@@ -84,9 +84,10 @@ export default function ProjectDetails({
                 REVENUE: "Ingresos",
               }[source.type] ?? source.type;
             return (
-              <div key={i} className="flex items-center gap-4">
-                <div className="flex-1 truncate text-xl">
-                  {source.description}
+              <div key={i} className="flex items-center gap-5">
+                <div className="flex-1 whitespace-normal break-all text-xl">
+                  {source.description} 
+
                 </div>
                 <div className="text-sm tracking-widest text-gray-700 dark:text-gray-400">
                   {type}
