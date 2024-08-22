@@ -27,12 +27,7 @@ export default function BallotPage() {
     }
   }, [address, isConnecting, router]);
 
-  const votes = useMemo(
-    () => ballot?.votes?.sort((a, b) => b.amount - a.amount),
-    [ballot],
-  );
-
-  if (!votes) {
+  if (!ballot) {
     return <EmptyBallot />;
   }
 

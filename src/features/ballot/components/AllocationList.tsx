@@ -68,16 +68,14 @@ export function AllocationFormWrapper({
   renderExtraColumn,
 }: AllocationFormProps) {
   const form = useFormContext<{ votes: Vote[] }>();
-  const { initialVoiceCredits, pollId } = useMaci();
-  const { ballot, sumBallot, addToBallot: onSave, removeFromBallot: onRemove } = useBallot();
+  const { pollId } = useMaci();
+  const { addToBallot: onSave, removeFromBallot: onRemove } = useBallot();
 
   const { fields, remove } = useFieldArray({
     name: "votes",
     keyName: "key",
     control: form.control,
   });
-
-  const sum = sumBallot(ballot?.votes ?? []);
 
   const handleOnBlur = useCallback(() => {
     onSave(form.getValues().votes, pollId!);
@@ -105,7 +103,6 @@ export function AllocationFormWrapper({
                     name={`votes.${idx}.amount`}
                     disabled={disabled}
                     defaultValue={project.amount}
-                    votingMaxProject={Math.sqrt(Math.min(initialVoiceCredits, initialVoiceCredits - sum))}
                     onBlur={handleOnBlur}
                   />
                 </Td>
