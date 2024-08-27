@@ -76,11 +76,13 @@ export function Projects() {
                   />
                 </div>
               ) : null}
+              {/** 
               {!results.isLoading && appState === EAppState.RESULTS ? (
                 <ProjectItemAwarded
                   amount={results.data?.projects?.[item.id]?.votes}
                 />
               ) : null}
+              */}
               <ProjectItem isLoading={isLoading} attestation={item} />
             </Link>
           );
