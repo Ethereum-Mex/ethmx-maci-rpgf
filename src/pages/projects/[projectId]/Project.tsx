@@ -14,9 +14,7 @@ export default function ProjectDetailsPage({ projectId = "" }) {
   const appState = getAppState();
 
   const action =
-    appState === EAppState.RESULTS ? (
-      <ProjectAwarded id={projectId} />
-    ) : (
+    appState === EAppState.RESULTS ? null : (
       <ProjectAddToBallot id={projectId} name={name} />
     );
   return (
