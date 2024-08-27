@@ -261,7 +261,7 @@ export function ApplicationForm({ address = "" }) {
               required
               valueAsNumber
             >
-              <Input type="number" placeholder="Cantidad" />
+              <Input type="number" placeholder="Monto" />
             </FormControl>
 
 
