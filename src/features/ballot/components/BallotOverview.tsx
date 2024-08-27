@@ -60,7 +60,8 @@ function BallotOverview() {
   if (appState === EAppState.RESULTS)
     return (
       <div className="flex flex-col items-center gap-2 pt-8 bg-gray-50 rounded-xl py-8">
-        <BallotHeader>¡Resultados publicados!</BallotHeader>
+        <BallotHeader>Ronda Cerrada</BallotHeader>
+        <BallotSection title="Votos están siendo contados"></BallotSection>
         {/** 
         <Button as={Link} href={"/projects/results"}>
           Ir a los resultados
