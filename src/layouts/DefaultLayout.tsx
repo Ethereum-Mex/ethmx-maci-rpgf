@@ -33,14 +33,14 @@ export const Layout = ({ children, ...props }: Props) => {
     }
   ];
   
-{/** 
+
   if (appState === EAppState.RESULTS) {
     navLinks.push({
       href: "/stats",
-      children: "Estadísticas",
+      children: "Resultados",
     });
   }
-*/}
+
 
   if (config.admin === address!) {
     navLinks.push(
