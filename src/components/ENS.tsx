@@ -1,7 +1,8 @@
 import { Avatar } from "~/components/ui/Avatar";
-import { useEnsAvatar, useEnsName } from "wagmi";
+import { useEnsAvatar, useEnsName, useAccount } from "wagmi";
 import { truncate } from "~/utils/truncate";
 import type { Address } from "viem";
+import { config } from "~/config";
 
 export function AvatarENS({ address }: { address: Address }) {
   const { data: name } = useEnsName({
@@ -33,5 +34,9 @@ export function NameENS({ address }: { address?: string }) {
     },
   });
 
-  return <div>{name ?? truncate(address)}</div>;
+  
+  return (
+    <div>{config.admin === address ? name ?? address : name ?? truncate(address)}</div>
+  );
+  
 }
