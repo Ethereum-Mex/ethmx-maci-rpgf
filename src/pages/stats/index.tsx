@@ -1,6 +1,6 @@
 import { differenceInDays } from "date-fns";
 import dynamic from "next/dynamic";
-import { useMemo, type PropsWithChildren } from "react";
+import { useMemo, useEffect, useState, type PropsWithChildren } from "react";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "~/components/ConnectButton";
 import { Alert } from "~/components/ui/Alert";
@@ -29,7 +29,7 @@ export default function StatsPage() {
   return (
     <Layout>
       <Heading as="h1" size="3xl">
-        Estadísticas
+        Resultados preliminares de la ronda #1 Ethereum México PGF 
       </Heading>
 
       {appState === EAppState.RESULTS ? (
@@ -52,6 +52,8 @@ function Stats() {
   const { data: projectsResults } = useProjectsResults(pollData);
   const { isConnected } = useAccount();
 
+  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+
   const { averageVotes, projects = {} } = results.data ?? {};
 
   const chartData = useMemo(() => {
@@ -64,6 +66,36 @@ function Stats() {
 
     return [{ id: "awarded", data }];
   }, [projects, projectsResults]);
+
+  useEffect(() => {
+    const loadScript = () => {
+      if (!isScriptLoaded) {
+        const script = document.createElement('script');
+        script.src = "https://public.flourish.studio/resources/embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+        script.onload = () => setIsScriptLoaded(true);
+
+        // Limpiar el script cuando el componente se desmonte
+        return () => {
+          document.body.removeChild(script);
+          setIsScriptLoaded(false);
+        };
+      }
+    };
+
+    loadScript(); // Cargar el script inicialmente
+
+    // Vuelve a cargar el script cuando el componente se vuelve a mostrar
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        loadScript();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [isScriptLoaded]);
 
   if (isLoading) {
     return <div>Cargando...</div>;
@@ -88,25 +120,58 @@ function Stats() {
   }
 
   return (
-    <div>
-      <h3 className="text-lg font-bold">Proyectos Principales</h3>
-      <div className="mb-8 h-[400px] rounded-xl bg-white text-black">
-        <ResultsChart data={chartData} />
+    <>
+      <div>
+        <br />
+        <h3 className="text-lg">
+          En los próximos días compartiremos un análisis más detallado de los resultados.
+        </h3>
+        <a 
+          style={{ textDecoration: 'underline' }} 
+          href="https://docs.google.com/spreadsheets/d/18KNgbFJRwynSWX5wXRTxSxzLLoj5Rybcq1Yg3q0DOAo/edit?gid=663021552#gid=663021552"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        Consulta la información adicional aquí.
+        </a>
+        <br /> <br />
+        <p className="text-lg">¡Muchas gracias por participar!</p>
+        <br />
+
+        <div className="flourish-embed flourish-hierarchy" data-src="visualisation/19217853">
+          <noscript>
+            <img 
+              src="https://public.flourish.studio/visualisation/19217853/thumbnail" 
+              width="100%" 
+              alt="hierarchy visualization" 
+            />
+          </noscript>
+        </div>
       </div>
 
-      <div className="grid gap-2 md:grid-cols-3">
-        <Stat title="Proyectos Participantes">{count.data?.count}</Stat>
-        <Stat title="Proyectos Votados ">{Object.keys(projects).length}</Stat>
-        <Stat title="Votantes">
-          {pollData?.numSignups ? Number(pollData?.numSignups) - 1 : 0}
-        </Stat>
-        <Stat title="Votos Promedio Por Proyecto">
-          {formatNumber(averageVotes)}
-        </Stat>
+      <div>
+        {/* 
+          <h3 className="text-lg font-bold">Proyectos Principales</h3>
+          <div className="mb-8 h-[400px] rounded-xl bg-white text-black">
+            <ResultsChart data={chartData} />
+          </div>
+
+          <div className="grid gap-2 md:grid-cols-3">
+            <Stat title="Proyectos Participantes">{count.data?.count}</Stat>
+            <Stat title="Proyectos Votados ">{Object.keys(projects).length}</Stat>
+            <Stat title="Votantes">
+              {pollData?.numSignups ? Number(pollData?.numSignups) - 1 : 0}
+            </Stat>
+            <Stat title="Votos Promedio Por Proyecto">
+              {formatNumber(averageVotes)}
+            </Stat>
+          </div>
+        */}
       </div>
-    </div>
+    </>
   );
 }
+
 function Stat({ title, children }: PropsWithChildren<{ title: string }>) {
   return (
     <div className="rounded border p-2 dark:border-gray-700">
