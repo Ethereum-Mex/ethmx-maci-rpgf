@@ -36,7 +36,10 @@ export function NameENS({ address }: { address?: string }) {
 
   
   return (
-    <div>{config.admin === address ? name ?? address : name ?? truncate(address)}</div>
+    <>
+    {/*<div>{config.admin === address ? name ?? address : name ?? (address)}</div> */}
+    <div>{config.admin === address ? name ?? address : name ?? address}</div>
+    </>
   );
   
 }
