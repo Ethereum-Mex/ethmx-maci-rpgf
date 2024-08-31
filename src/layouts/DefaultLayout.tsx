@@ -33,13 +33,20 @@ export const Layout = ({ children, ...props }: Props) => {
     }
   ];
   
-
+/*
   if (appState === EAppState.RESULTS) {
     navLinks.push({
       href: "/stats",
       children: "Resultados",
     });
   }
+*/
+
+  navLinks.push({
+    href: "/stats",
+    children: "Resultados",
+  });
+
 
 
   if (config.admin === address!) {
