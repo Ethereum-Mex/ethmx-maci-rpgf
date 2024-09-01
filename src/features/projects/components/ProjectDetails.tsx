@@ -60,7 +60,7 @@ export default function ProjectDetails({
         </Heading>
 
         <Heading as="h3" size="2xl">
-          Categoría de impacto
+          Categoría
         </Heading>
 
          <ImpactCategories tag={metadata.data?.impactCategory} />
