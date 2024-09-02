@@ -18,6 +18,7 @@ export default function ProjectImpact({ isLoading, project }: Props) {
           <Markdown isLoading={isLoading}>
             {project?.impactDescription}
           </Markdown>
+          {/*
           <Heading as="h3" size="2xl">
           Consideración del impacto del proyecto en USD
           </Heading>
@@ -33,7 +34,7 @@ export default function ProjectImpact({ isLoading, project }: Props) {
               : 'Impacto Directo'
             }
             </Markdown>
-
+          */}
         </div>
         <div className="md:w-1/3">
           <LinkBox
